@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bfc1098de14cceb0503fb6ce458274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _value: 0
+  baseWaterReduction: 0.1
+  heatMod: 0
+  heatMinMod: 0
+  heatMaxMod: 0
 --- !u!1001 &3779905609000060713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19,6 +24,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4476172967670672393, guid: e6540d869618b46228415d6884eb4752, type: 3}
+      propertyPath: m_Size.x
+      value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476172967670672393, guid: e6540d869618b46228415d6884eb4752, type: 3}
+      propertyPath: m_Size.y
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476172967670672393, guid: e6540d869618b46228415d6884eb4752, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 40ed7f3871e5c7a4b97ef44c1c9425d0, type: 3}
+    - target: {fileID: 4476172967670672393, guid: e6540d869618b46228415d6884eb4752, type: 3}
+      propertyPath: m_DrawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476172967670672394, guid: e6540d869618b46228415d6884eb4752, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4476172967670672394, guid: e6540d869618b46228415d6884eb4752, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4476172968003102641, guid: e6540d869618b46228415d6884eb4752, type: 3}
       propertyPath: m_RootOrder
       value: 0
