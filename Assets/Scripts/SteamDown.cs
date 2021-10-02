@@ -46,6 +46,7 @@ public class SteamDown : MonoBehaviour
         {
             transform.position =
                 new Vector3(transform.position.x, _initialYPos + (mouseWorldPos.y - _initialClickPosY));
+            _steamScalebar.DecreaseValue(steamDecreaseSpeed * ((mouseWorldPos.y - _initialClickPosY) / maxDistance) * Time.deltaTime);
         }
         else
         {
