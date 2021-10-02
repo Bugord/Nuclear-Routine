@@ -11,10 +11,6 @@ public class ButtonComponent : MonoBehaviour
     [SerializeField] private ButtonPaletteSo palette;
     
     private SpriteRenderer _renderer;
-
-    public UnityEvent onMouseDown;
-    public UnityEvent onMouseDrag;
-    public UnityEvent onMouseUp;
     
     private void Awake()
     {
@@ -22,20 +18,17 @@ public class ButtonComponent : MonoBehaviour
         _renderer.sprite = palette.released;
     }
 
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         _renderer.sprite = palette.pressed;
-        onMouseDown?.Invoke();
     }
 
-    private void OnMouseDrag()
+    protected virtual void OnMouseDrag()
     {
-        onMouseDrag?.Invoke();
     }
 
-    private void OnMouseUp()
+    protected virtual void OnMouseUp()
     {
         _renderer.sprite = palette.released;
-        onMouseUp?.Invoke();
     }
 }
