@@ -6,19 +6,22 @@ using UnityEngine.UI;
 
 public class ScalebarComponent : MonoBehaviour
 {
-    [SerializeField] private Image bar;
+    [SerializeField] private Transform bar;
 
+    private Vector3 _startPosition;
+    
     private Scalebar _scalebar;
     
     void Awake()
     {
+        _startPosition = bar.localPosition;
         _scalebar = GetComponent<Scalebar>();
         _scalebar!.ValueChanged += UpdateBar;
     }
 
     private void UpdateBar(float value)
     {
-        bar.fillAmount = value;
+        bar.localPosition = Vector3.Lerp(_startPosition, Vector3.zero, value);
     }
 
     private void OnDestroy()
