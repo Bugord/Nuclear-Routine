@@ -49,7 +49,7 @@ public class FuelController : MonoBehaviour
     {
         return _sterjenGroupDeep.Sum(x => x.Value);
     }
-
+    
     public void FuelDown(SterjenGroup sterjenGroup)
     {
         _sterjenGroupDeep[sterjenGroup] =
