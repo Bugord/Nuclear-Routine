@@ -97,3 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sterjenPaletteSo: {fileID: 11400000, guid: ff7f13ac520b83343bee5f9fcd323156, type: 2}
   _sterjenGroup: 0
+  deepDistance: 0.2

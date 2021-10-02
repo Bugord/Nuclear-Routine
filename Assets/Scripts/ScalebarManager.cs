@@ -6,7 +6,7 @@ public class ScalebarManager : MonoBehaviour
 {
     public static ScalebarManager Instance { get; private set; }
     
-    public List<FuelScalebar> FuelScalebars;
+    public FuelController FuelController;
     public HeatScalebar HeatScalebar;
     public PowerScalebar PowerScalebar;
     public SteamScalebar SteamScalebar;

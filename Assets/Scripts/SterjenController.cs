@@ -15,8 +15,21 @@ public class SterjenController : MonoBehaviour
 {
     public SterjenGroup SterjenGroup => _sterjenGroup;
     [SerializeField] private SterjenPaletteSo _sterjenPaletteSo;
-    
     [SerializeField] private SterjenGroup _sterjenGroup;
+    [SerializeField] private float deepDistance;
+    private float _maxDeepPosY;
+    private float _minDeepPosY;
+    
+    private void Awake()
+    {
+        _maxDeepPosY = transform.position.y - deepDistance / 2f;
+        _minDeepPosY = transform.position.y + deepDistance / 2f;
+    }
+
+    public void ChangeDeep(float deepValue)
+    {
+        transform.position = new Vector3(transform.position.x, Mathf.Lerp(_minDeepPosY, _maxDeepPosY, deepValue));
+    }
 
     public void OnValidate()
     {

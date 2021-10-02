@@ -11,15 +11,14 @@ public class HeatScalebar : Scalebar
     [SerializeField] private float waterMinLevelMod;
     [SerializeField] private float waterMaxLevelMod;
     [SerializeField] private float fuelDeepMod;
-    [SerializeField] private float fuelBaseValue;
 
     private WaterScalebar _waterScalebar;
-    private List<FuelScalebar> _fuelScalebars;
+    private FuelController _fuelController;
 
     private void Awake()
     {
         _waterScalebar = ScalebarManager.Instance.WaterScalebar;
-        _fuelScalebars = ScalebarManager.Instance.FuelScalebars;
+        _fuelController = ScalebarManager.Instance.FuelController;
     }
 
     protected override void Tick()
@@ -48,7 +47,6 @@ public class HeatScalebar : Scalebar
 
     private float GetFuelValue()
     {
-        var enabledFuelScalebars = _fuelScalebars.Where(x => x.Value > 0).ToList();
-        return fuelBaseValue * enabledFuelScalebars.Count + enabledFuelScalebars.Sum(x => x.Deep * fuelDeepMod);
+        return _fuelController.GetTotalDeep() * fuelDeepMod;
     }
 }

@@ -1,71 +1,128 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Newtonsoft.Json.Bson;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace DefaultNamespace
+public class FuelController : MonoBehaviour
 {
-    public class FuelController : MonoBehaviour
+    private Dictionary<SterjenGroup, List<SterjenController>> _sterjenControllers;
+    [SerializeField] private List<SterjenController> allSterjenControllers;
+    private Dictionary<SterjenGroup, float> _sterjenGroupDeep;
+
+    [SerializeField] private float _deepChangeSpeed = 0.3f;
+
+    private int _currentScalebarIndex;
+    private SterjenGroup _currentSterjenGroup;
+
+    private void Awake()
     {
-        [SerializeField] private float _deepChangeSpeed = 0.3f;
+        _sterjenGroupDeep = new Dictionary<SterjenGroup, float>
+        {
+            {SterjenGroup.Red, Random.Range(.3f, .6f)},
+            {SterjenGroup.Green, Random.Range(.3f, .6f)},
+            {SterjenGroup.Blue, Random.Range(.3f, .6f)}
+        };
         
-        private List<FuelScalebar> _fuelScalebars;
-        private int _currentScalebarIndex;
+        allSterjenControllers = GetComponentsInChildren<SterjenController>().ToList();
+
+        _sterjenControllers = new Dictionary<SterjenGroup, List<SterjenController>>
+        {
+            {
+                SterjenGroup.Red,
+                GetComponentsInChildren<SterjenController>().Where(x => x.SterjenGroup == SterjenGroup.Red).ToList()
+            },
+            {
+                SterjenGroup.Green,
+                GetComponentsInChildren<SterjenController>().Where(x => x.SterjenGroup == SterjenGroup.Green).ToList()
+            },
+            {
+                SterjenGroup.Blue,
+                GetComponentsInChildren<SterjenController>().Where(x => x.SterjenGroup == SterjenGroup.Blue).ToList()
+            }
+        };
+
         
-        private void Awake()
+    }
+
+    private void Start()
+    {
+        allSterjenControllers.ForEach(x => x.ChangeDeep(_sterjenGroupDeep[x.SterjenGroup]));
+    }
+
+    private void Update()
+    {
+        var y = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            _fuelScalebars = ScalebarManager.Instance.FuelScalebars;
+            SelectPrev();
+        }
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SelectNext();
         }
 
-        private void Update()
+        if (y < 0)
         {
-            var y = Input.GetAxisRaw("Vertical");
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                SelectPrev();
-            }
-            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                SelectNext();
-            }
+            FuelDown();
+        }
+        else if (y > 0)
+        {
+            FuelUp();
+        }
+    }
 
-            if (y < 0)
-            {
-                FuelDown();
-            }
-            else if (y > 0)
-            {
-                FuelUp();
-            }
+    public float GetTotalDeep()
+    {
+        return _sterjenGroupDeep.Sum(x => x.Value);
+    }
+
+    public void SelectNext()
+    {
+        _currentScalebarIndex++;
+        if (_currentScalebarIndex >= 3)
+        {
+            _currentScalebarIndex = 0;
         }
 
-        public void SelectNext()
+        _currentSterjenGroup = (SterjenGroup) _currentScalebarIndex;
+    }
+
+    public void SelectPrev()
+    {
+        _currentScalebarIndex--;
+        if (_currentScalebarIndex < 0)
         {
-            _currentScalebarIndex++;
-            if (_currentScalebarIndex >= _fuelScalebars.Count)
-            {
-                _currentScalebarIndex = 0;
-            }
+            _currentScalebarIndex = 2;
         }
 
-        public void SelectPrev()
-        {
-            _currentScalebarIndex--;
-            if (_currentScalebarIndex < 0)
-            {
-                _currentScalebarIndex = _fuelScalebars.Count - 1;
-            }
-        }
+        _currentSterjenGroup = (SterjenGroup) _currentScalebarIndex;
+    }
 
-        public void FuelDown()
-        {
-            _fuelScalebars[_currentScalebarIndex].ChangeDeep(_deepChangeSpeed * Time.deltaTime);
-        }
+    public void FuelDown()
+    {
+        _sterjenGroupDeep[_currentSterjenGroup] =
+            Mathf.Clamp01(_sterjenGroupDeep[_currentSterjenGroup] + _deepChangeSpeed * Time.deltaTime);
+        
+        _sterjenControllers[_currentSterjenGroup]
+            .ForEach(x => x.ChangeDeep(_sterjenGroupDeep[_currentSterjenGroup]));
+    }
 
-        public void FuelUp()
-        {
-            _fuelScalebars[_currentScalebarIndex].ChangeDeep(-_deepChangeSpeed * Time.deltaTime);
-        }
+    public void FuelUp()
+    {
+        _sterjenGroupDeep[_currentSterjenGroup] =
+            Mathf.Clamp01(_sterjenGroupDeep[_currentSterjenGroup] - _deepChangeSpeed * Time.deltaTime);
+        
+        _sterjenControllers[_currentSterjenGroup]
+            .ForEach(x => x.ChangeDeep(_sterjenGroupDeep[_currentSterjenGroup]));
+    }
+
+    [ContextMenu("Fill Dictionary")]
+    private void FillDictionary()
+    {
+       
+        Debug.Log(_sterjenControllers[SterjenGroup.Red].Count);
+        Debug.Log(_sterjenControllers[SterjenGroup.Green].Count);
+        Debug.Log(_sterjenControllers[SterjenGroup.Blue].Count);
     }
 }
