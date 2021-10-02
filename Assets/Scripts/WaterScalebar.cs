@@ -20,4 +20,12 @@ public class WaterScalebar : Scalebar
         currentValue -= (baseWaterReduction + heatModValue) * Time.deltaTime;
         ChangeValue(currentValue);
     }
+
+    public void AddWater(float delta)
+    {
+        var currentValue = Value;
+        currentValue += delta;
+        
+        ChangeValue(currentValue);
+    }
 }

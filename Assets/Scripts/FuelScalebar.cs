@@ -1,18 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FuelScalebar : Scalebar
 {
     public float Deep => deep;
     [Range(0,1f)]
     [SerializeField] private float deep;
-    [SerializeField] private float deepDecreaseMod;
-    [SerializeField] private float baseDecrease;
+    
     protected override void Tick()
     {
-        var currentValue = Value;
-        currentValue -= (baseDecrease + deepDecreaseMod * deep) * Time.deltaTime;
         
-        ChangeValue(currentValue);
     }
+
+    public void ChangeDeep(float value) => deep = Mathf.Clamp01(deep + value); 
 }
