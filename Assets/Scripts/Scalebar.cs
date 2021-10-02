@@ -3,16 +3,36 @@ using UnityEngine;
 
 public abstract class Scalebar : MonoBehaviour
 {
-    public float Value { get; private set; }
+    public float Value => _value;
+    [SerializeField] private float _value;
     public Action<float> ValueChanged { get; set; }
 
-    public void ChangeValue(float value)
+    protected void ChangeValue(float value)
     {
+        if (value < 0)
+        {
+            if (_value <= 0)
+                return;
+            _value = 0;
+        }
+        else if (value > 1)
+        {
+            if (_value > 1)
+                return;
+            _value = 1;
+        }
+        else
+        {
+            _value = value;
+        }
+
         ValueChanged?.Invoke(value);
     }
 
-    private void Tick()
+    protected abstract void Tick();
+
+    private void Update()
     {
-        
+        Tick();
     }
 }

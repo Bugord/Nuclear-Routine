@@ -310,6 +310,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: FuelScalebar
       objectReference: {fileID: 0}
+    - target: {fileID: 3473784074676865586, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473784074676865586, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3473784074676865586, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: m_Color.r
+      value: 0.38496292
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584831403943692660, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: deep
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584831403943692660, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: _value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584831403943692660, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: baseDecrease
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584831403943692660, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+      propertyPath: deepDecreaseMod
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8806947575685225947, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -401,6 +429,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8806947575685225947, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
   m_PrefabInstance: {fileID: 309495748}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &324846187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+  m_PrefabInstance: {fileID: 537783296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d31dd1f9a4fd0bf38df7f963c4f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &362313641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,6 +450,18 @@ PrefabInstance:
     - target: {fileID: 1415171963511379356, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
       propertyPath: m_Name
       value: PowerScalebar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115648004766315807, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115648004766315807, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115648004766315807, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9593928
       objectReference: {fileID: 0}
     - target: {fileID: 7003323116545024758, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
       propertyPath: m_Pivot.x
@@ -495,6 +546,26 @@ PrefabInstance:
     - target: {fileID: 7003323116545024758, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041677684861170921, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: steamMax
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041677684861170921, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: steamMin
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041677684861170921, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: baseValue
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041677684861170921, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: decreaseMod
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041677684861170921, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+      propertyPath: increasedMod
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
@@ -594,6 +665,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: _value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: baseCool
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: fuelDeepMod
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: fuelBaseValue
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: waterMaxLevel
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: waterMinLevel
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: waterMaxLevelMod
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485587247541519770, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: waterMinLevelMod
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214002895642584741, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214002895642584741, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214002895642584741, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7971970061578946086, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
       propertyPath: m_Name
       value: HeatScalebar
@@ -605,6 +720,66 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2031508997428015436, guid: afdb27f3358b742209b77f3da0dcd792, type: 3}
   m_PrefabInstance: {fileID: 537783296}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &910109271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910109273}
+  - component: {fileID: 910109272}
+  m_Layer: 0
+  m_Name: ScalebarManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &910109272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910109271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5919df3194a46b2b4303f3c6a16c6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FuelScalebars:
+  - {fileID: 1272371290}
+  HeatScalebar: {fileID: 324846187}
+  PowerScalebar: {fileID: 1643201772}
+  SteamScalebar: {fileID: 1622067040}
+  WaterScalebar: {fileID: 1041400047}
+--- !u!4 &910109273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910109271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1041400047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6545720171856440037, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+  m_PrefabInstance: {fileID: 1900726078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bfc1098de14cceb0503fb6ce458274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1237939431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -700,6 +875,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamScalebar
       objectReference: {fileID: 0}
+    - target: {fileID: 5303325997680788625, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+      propertyPath: heatMod
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303325997680788625, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+      propertyPath: waterMod
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5303325997680788625, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+      propertyPath: baseDecrease
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093841896305850045, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.46226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093841896305850045, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.46226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093841896305850045, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.46226418
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
 --- !u!224 &1237939432 stripped
@@ -707,6 +906,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4206034727956210004, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
   m_PrefabInstance: {fileID: 1237939431}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1272371290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5584831403943692660, guid: fb2669a8a8d8c4cd2845041388660b52, type: 3}
+  m_PrefabInstance: {fileID: 309495748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a9b58ec4a8c4cc59794686a0700b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1398544401
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +1099,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1622067040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5303325997680788625, guid: 6bee2bcc70fa34ef594c1f04b2603fc6, type: 3}
+  m_PrefabInstance: {fileID: 1237939431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f14a2dea2004b9aac9408ced57ed555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1643201772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8041677684861170921, guid: 8bdb231240f104e38a111c49e52c476f, type: 3}
+  m_PrefabInstance: {fileID: 362313641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b0a97fca6432191d179d82cb36af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1900726078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -979,6 +1211,38 @@ PrefabInstance:
     - target: {fileID: 1161292543399056383, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489811810100626454, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489811810100626454, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5249777
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489811810100626454, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545720171856440037, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: _value
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545720171856440037, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: heatMod
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545720171856440037, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: heatMaxMod
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545720171856440037, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: heatMinMod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545720171856440037, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
+      propertyPath: baseWaterReduction
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7101828383064908949, guid: 96ff80774370547e4b0694020ee2c39f, type: 3}
       propertyPath: m_Name
