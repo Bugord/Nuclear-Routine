@@ -38,7 +38,7 @@ public class HeatScalebar : Scalebar
             return waterMinLevelMod;
         }
 
-        if (_waterScalebar.Value > waterMaxLevelMod)
+        if (_waterScalebar.Value > waterMaxLevel)
         {
             return waterMaxLevelMod;
         }
