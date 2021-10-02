@@ -9,6 +9,9 @@ public abstract class Scalebar : MonoBehaviour
 
     protected void ChangeValue(float value)
     {
+        if (_value == value)
+            return;
+
         if (value < 0)
         {
             if (_value <= 0)

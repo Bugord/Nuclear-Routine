@@ -23,4 +23,9 @@ public class SteamScalebar : Scalebar
         
         ChangeValue(currentValue);
     }
+
+    public void DecreaseValue(float value)
+    {
+        ChangeValue(Value - value);
+    }
 }
