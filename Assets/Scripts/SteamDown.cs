@@ -1,8 +1,10 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
 public class SteamDown : MonoBehaviour
 {
+    
     [SerializeField] private float maxDistance = -3f;
     [SerializeField] private float steamDecreaseSpeed;
     private float _initialYPos;
@@ -10,6 +12,7 @@ public class SteamDown : MonoBehaviour
     private bool _isDragged;
     private Camera _camera;
     private SteamScalebar _steamScalebar;
+
 
     private void Awake()
     {
@@ -57,4 +60,5 @@ public class SteamDown : MonoBehaviour
         transform.DOMoveY(_initialYPos, 0.3f).OnComplete(() => _isDragged = false);
         _steamScalebar.StopSteamSound();
     }
+    
 }

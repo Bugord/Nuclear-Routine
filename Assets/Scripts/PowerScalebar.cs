@@ -1,11 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using ScriptableObjects.ScalebarsParameters;
 using UnityEngine;
 
 public class PowerScalebar : Scalebar
 {
+    public event Action Blackout;
     [SerializeField] private List<PowerScalebarParametersSO> _powerScalebarParameters;
     private SteamScalebar _steamScalebar;
+    
+    [SerializeField] private float _timeToBlackout;
+    private Coroutine _blackoutTimer;
+    private bool _isCounting;
 
     private void Awake()
     {
@@ -30,5 +37,23 @@ public class PowerScalebar : Scalebar
         }
         
         ChangeValue(currentValue);
+        
+        
+        if (Value > 0 && _isCounting)
+        {
+            StopCoroutine(_blackoutTimer);
+            _isCounting = false;
+        }
+        if (Value == 0 && !_isCounting)
+        {
+            _blackoutTimer = StartCoroutine(BlackoutTimer());
+            _isCounting = true;
+        }
+    }
+    
+    IEnumerator BlackoutTimer()
+    {
+        yield return new WaitForSeconds(_timeToBlackout);
+        Blackout?.Invoke();
     }
 }

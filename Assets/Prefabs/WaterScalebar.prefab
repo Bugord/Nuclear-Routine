@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8bfc1098de14cceb0503fb6ce458274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: 0
-  baseWaterReduction: 0.1
-  heatMod: 0
-  heatMinMod: 0
-  heatMaxMod: 0
+  _value: 0.5
+  _currentDifficulty: 0
+  _waterScalebarParameters:
+  - {fileID: 11400000, guid: a43755ae7dc255f4fb95d85579cf6d58, type: 2}
 --- !u!1001 &3779905609000060713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4476172968003102641, guid: e6540d869618b46228415d6884eb4752, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.37
       objectReference: {fileID: 0}
     - target: {fileID: 4476172968003102641, guid: e6540d869618b46228415d6884eb4752, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 4476172968003102641, guid: e6540d869618b46228415d6884eb4752, type: 3}
       propertyPath: m_LocalPosition.z

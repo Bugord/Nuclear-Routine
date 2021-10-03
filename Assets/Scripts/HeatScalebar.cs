@@ -1,13 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using ScriptableObjects.ScalebarsParameters;
 using UnityEngine;
 
 public class HeatScalebar : Scalebar
 {
+    public event Action HeatExplode;
     [SerializeField] private List<HeatScalebarParametersSO> _heatScalebarParameters;
     private WaterScalebar _waterScalebar;
     private FuelController _fuelController;
-
+    
+    [SerializeField] private float _timeToExplode;
+    private Coroutine _explodeTimer;
+    private bool _isCounting;
+    
+    
     private void Awake()
     {
         _waterScalebar = ScalebarManager.Instance.WaterScalebar;
@@ -22,6 +30,17 @@ public class HeatScalebar : Scalebar
         var baseCoolValue = -_heatScalebarParameters[_currentDifficultyId].baseCool;
         currentValue += (baseCoolValue * waterModValue + GetFuelValue()) * Time.deltaTime;
         ChangeValue(currentValue);
+
+        if (Value < 1 && _isCounting)
+        {
+            StopCoroutine(_explodeTimer);
+            _isCounting = false;
+        }
+        if (Value == 1 && !_isCounting)
+        {
+            _explodeTimer = StartCoroutine(ExplodeTimer());
+            _isCounting = true;
+        }
     }
 
     private float GetWaterMod()
@@ -42,5 +61,11 @@ public class HeatScalebar : Scalebar
     private float GetFuelValue()
     {
         return _fuelController.GetTotalDeep() * _heatScalebarParameters[_currentDifficultyId].fuelDeepMod;
+    }
+
+    IEnumerator ExplodeTimer()
+    {
+        yield return new WaitForSeconds(_timeToExplode);
+        HeatExplode?.Invoke();
     }
 }

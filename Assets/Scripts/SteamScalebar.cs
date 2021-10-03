@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using ScriptableObjects.ScalebarsParameters;
 using UnityEngine;
 
 public class SteamScalebar : Scalebar
 {
+    public event Action SteamExplode; 
+
     [SerializeField] private List<SteamScalebarParametersSO> _steamScalebarParameters;
     [SerializeField] private SoundController steamSoundController;
     [SerializeField] private SoundController hornSoundController;
@@ -11,7 +15,10 @@ public class SteamScalebar : Scalebar
 
     private HeatScalebar _heatScalebar;
     private WaterScalebar _waterScalebar;
-
+    
+    [SerializeField] private float _timeToExplode;
+    private Coroutine _explodeTimer;
+    private bool _isCounting;
     private void Awake()
     {
         _heatScalebar = ScalebarManager.Instance.HeatScalebar;
@@ -26,6 +33,17 @@ public class SteamScalebar : Scalebar
             _heatScalebar.Value * currentParameter.heatMod) * Time.deltaTime;
 
         ChangeValue(currentValue);
+        
+        if (Value < 1 && _isCounting)
+        {
+            StopCoroutine(_explodeTimer);
+            _isCounting = false;
+        }
+        if (Value == 1 && !_isCounting)
+        {
+            _explodeTimer = StartCoroutine(ExplodeTimer());
+            _isCounting = true;
+        }
     }
 
     public void DecreaseValue(float value, float decreaseFactor)
@@ -46,5 +64,11 @@ public class SteamScalebar : Scalebar
     public void StopSteamSound()
     {
         steamSoundController.Stop();
+    }
+    
+    IEnumerator ExplodeTimer()
+    {
+        yield return new WaitForSeconds(_timeToExplode);
+        SteamExplode?.Invoke();
     }
 }
