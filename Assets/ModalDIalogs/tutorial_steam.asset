@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eed6957587e40e1a421aaa555249e04, type: 3}
-  m_Name: Test Modal Dialog
+  m_Name: tutorial_steam
   m_EditorClassIdentifier: 
   title: 
-  sprite: {fileID: 21300000, guid: 24ce9afc53c666b4587880bb3bf30d0c, type: 3}
-  description: 'This is test modal dialog
+  sprite: {fileID: 21300000, guid: 1ba5ba18acea70c4c9743d121b57dc96, type: 3}
+  description: 'This is pressure sensor.
 
-    Hello worldHello worldHello worldHello
+    Steam is used to create energy
 
-    llo
-    worldHello worldHello world'
+    Avoid
+    excess pressure'
   modalLayout: 0
-  position: {x: 500, y: -200}
+  position: {x: 175, y: -40}
+  reverseContent: 1

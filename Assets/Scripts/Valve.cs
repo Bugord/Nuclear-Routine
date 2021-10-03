@@ -1,3 +1,5 @@
+using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class Valve : MonoBehaviour
@@ -20,10 +22,23 @@ public class Valve : MonoBehaviour
         _myCam = Camera.main;
     }
 
+    private void OnMouseEnter()
+    {
+        if(!_isDragged)
+            CursorManager.Instance.SetCursor(CursorType.BeforeGrab);
+    }
+
     private void OnMouseDown()
     {
         SetAngleOffset();
         _isDragged = true;
+        CursorManager.Instance.SetCursor(CursorType.Grab);
+    }
+
+    private void OnMouseExit()
+    {
+        if(!_isDragged)
+            CursorManager.Instance.SetCursor(CursorType.Pointer);
     }
 
     private void SetAngleOffset()
@@ -38,6 +53,7 @@ public class Valve : MonoBehaviour
         _isDragged = false;
         valveSoundController.Stop();
         waterSoundController.Play(soundPalette.waterEndSound, true);
+        CursorManager.Instance.SetCursor(CursorType.Pointer);
     }
 
     private void OnMouseDrag()

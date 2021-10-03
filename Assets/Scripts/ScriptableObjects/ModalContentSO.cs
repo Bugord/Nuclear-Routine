@@ -9,5 +9,7 @@ namespace ScriptableObjects
         public Sprite sprite;
         [TextArea(4,6)] public string description;
         public ModalLayout modalLayout;
+        public Vector2 position;
+        public bool reverseContent;
     }
 }

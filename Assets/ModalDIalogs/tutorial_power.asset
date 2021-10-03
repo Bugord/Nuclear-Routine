@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eed6957587e40e1a421aaa555249e04, type: 3}
-  m_Name: Test Modal Dialog
+  m_Name: tutorial_power
   m_EditorClassIdentifier: 
   title: 
-  sprite: {fileID: 21300000, guid: 24ce9afc53c666b4587880bb3bf30d0c, type: 3}
-  description: 'This is test modal dialog
-
-    Hello worldHello worldHello worldHello
-
-    llo
-    worldHello worldHello world'
+  sprite: {fileID: 21300000, guid: 2722e05a2f6fb8d47bd527ae620b543f, type: 3}
+  description: "Keep steam high to gain\n power. You will lose \nif power will be
+    empty"
   modalLayout: 0
-  position: {x: 500, y: -200}
+  position: {x: 230, y: -175}
+  reverseContent: 1

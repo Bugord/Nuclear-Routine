@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using DG.Tweening;
 using UnityEngine;
 
@@ -23,15 +24,28 @@ public class SteamDown : MonoBehaviour
     {
         _camera = Camera.main;
     }
+    private void OnMouseEnter()
+    {
+        if(!_isDragged)
+            CursorManager.Instance.SetCursor(CursorType.BeforeGrab);
+    }
 
     private void OnMouseDown()
     {
         if (_isDragged)
             return;
+        
+        CursorManager.Instance.SetCursor(CursorType.Grab);
 
         _isDragged = true;
         _initialYPos = transform.position.y;
         _initialClickPosY = _camera.ScreenToWorldPoint(Input.mousePosition).y;
+    }
+    
+    private void OnMouseExit()
+    {
+        if(!_isDragged)
+            CursorManager.Instance.SetCursor(CursorType.Pointer);
     }
 
     private void OnMouseDrag()
@@ -59,6 +73,7 @@ public class SteamDown : MonoBehaviour
     {
         transform.DOMoveY(_initialYPos, 0.3f).OnComplete(() => _isDragged = false);
         _steamScalebar.StopSteamSound();
+        CursorManager.Instance.SetCursor(CursorType.Pointer);
     }
     
 }
