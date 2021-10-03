@@ -22,8 +22,8 @@ public class SterjenController : MonoBehaviour
     
     private void Awake()
     {
-        _maxDeepPosY = transform.position.y - deepDistance / 2f;
-        _minDeepPosY = transform.position.y + deepDistance / 2f;
+        _maxDeepPosY = transform.position.y;
+        _minDeepPosY = transform.position.y + deepDistance;
     }
 
     public void ChangeDeep(float deepValue)
