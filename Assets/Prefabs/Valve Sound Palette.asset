@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500342b458f554c83ac9d6a160dc68dc, type: 3}
   m_Name: Valve Sound Palette
   m_EditorClassIdentifier: 
-  valveSound: {fileID: 0}
-  waterSound: {fileID: 0}
-  waterEndSound: {fileID: 0}
+  valveSound: {fileID: 8300000, guid: c67a63a0ebae644258dd837958c6e7bc, type: 3}
+  waterSound: {fileID: 8300000, guid: 6deb3dfb39cbc46d89039446ea274aa3, type: 3}
+  waterEndSound: {fileID: 8300000, guid: fcc670535773749cca0edba41bf07455, type: 3}

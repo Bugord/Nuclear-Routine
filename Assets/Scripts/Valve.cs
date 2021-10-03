@@ -45,6 +45,7 @@ public class Valve : MonoBehaviour
     {
         var v3 = Input.mousePosition - _screenPos;
         var angle = Mathf.Atan2(v3.y, v3.x) * Mathf.Rad2Deg;
+        
         if (_lastAngle > angle)
         {
             SetAngleOffset();
@@ -54,10 +55,14 @@ public class Valve : MonoBehaviour
         {
             ScalebarManager.Instance.WaterScalebar.AddWater(delta * waterMod);
         }
+
+        if (delta > 3 && delta < 90)
+        {
+            valveSoundController.Play(soundPalette.valveSound);
+            waterSoundController.Play(soundPalette.waterSound);
+        }
+        
         transform.eulerAngles = new Vector3(0, 0, angle + _angleOffset);
         _lastAngle = angle;
-        
-        valveSoundController.Play(soundPalette.valveSound);
-        waterSoundController.Play(soundPalette.waterSound);
     }
 }
