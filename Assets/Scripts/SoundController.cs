@@ -12,12 +12,20 @@ public class SoundController : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
+    public void Play(AudioClip clip, bool skipCurrent)
+    {
+        if (skipCurrent)
+        {
+            audio.Stop();
+        }
+        Play(clip);
+    }
+
     public void Play(AudioClip clip)
     {
         if (!audio.isPlaying)
         {
             audio.clip = clip;
-            audio.pitch = Random.Range(0.5f, 1.3f);
             var distance = (transform.position - Vector3.zero).x;
             var soundFactor = distance * 100 / Screen.width;
             audio.panStereo = soundFactor;
