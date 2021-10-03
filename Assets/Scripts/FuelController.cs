@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -56,7 +55,7 @@ public class FuelController : MonoBehaviour
             var heatLevel = (_heatScalebar.Value - 0.8f) / 0.2f;
             foreach (var sterjenController in allSterjenControllers)
             {
-                sterjenController.DoPerlin(Mathf.Lerp(minIntensity, maxIntensity, heatLevel));
+                sterjenController.DoPerlin(Mathf.Lerp(minIntensity, maxIntensity, heatLevel), heatLevel);
             }
         }
     }

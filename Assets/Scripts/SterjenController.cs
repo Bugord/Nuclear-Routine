@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using ScriptableObjects;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public enum SterjenGroup
@@ -26,12 +22,14 @@ public class SterjenController : MonoBehaviour
 
     private float _currentDeep;
     private float _initialY;
+    private float _noizeOffset;
 
     private void Awake()
     {
         _initialY = transform.position.y;
         _maxDeepPosY = transform.position.y;
         _minDeepPosY = transform.position.y + deepDistance;
+        _noizeOffset = ((float) _sterjenGroup + 1) * 0.33f;
     }
 
     public void ChangeDeep(float deepValue)
@@ -58,12 +56,12 @@ public class SterjenController : MonoBehaviour
     }
 
 
-    public void DoPerlin(float intensity)
+    public void DoPerlin(float intensity, float blend)
     {
-        var offset = Time.time * intensity * (((float) _sterjenGroup + 1) * 0.33f);
-        var perlinHeight = Mathf.PerlinNoise(transform.position.x + offset, _initialY + offset) * 1.2f - 0.08f;
-        transform.position = perlinHeight < _currentDeep
-            ? new Vector3(transform.position.x, Mathf.Lerp(_minDeepPosY, _maxDeepPosY, perlinHeight))
-            : new Vector3(transform.position.x, Mathf.Lerp(_minDeepPosY, _maxDeepPosY, _currentDeep));
+        _noizeOffset += Time.deltaTime * intensity;
+        var perlinHeight = Mathf.PerlinNoise(transform.position.x + _noizeOffset, _initialY + _noizeOffset) * 1.2f - 0.08f;
+        var blendedHeight = Mathf.Lerp(_currentDeep, perlinHeight, blend * 0.5f);
+        var maxDeepPos = Mathf.Lerp(_maxDeepPosY, _maxDeepPosY - 0.16f, blend * 0.5f);
+        transform.position = new Vector3(transform.position.x, Mathf.Lerp(_minDeepPosY, maxDeepPos, blendedHeight));
     }
 }
