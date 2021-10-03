@@ -52,9 +52,9 @@ public class FuelController : MonoBehaviour
 
     private void Update()
     {
-        if (_heatScalebar.Value >= 0.8f)
+        if (_heatScalebar.Value >= 0.7f)
         {
-            var heatLevel = (_heatScalebar.Value - 0.8f) / 0.2f;
+            var heatLevel = (_heatScalebar.Value - 0.7f) / 0.3f;
             var intensity = Mathf.Lerp(minIntensity, maxIntensity, heatLevel);
             radiationSoundController.Play(radiationPalette.GetRadiationClip(heatLevel), 1, false, true);
             foreach (var sterjenController in allSterjenControllers)
