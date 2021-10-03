@@ -11,6 +11,7 @@ public class SteamScalebar : Scalebar
     [SerializeField] private List<SteamScalebarParametersSO> _steamScalebarParameters;
     [SerializeField] private SoundController steamSoundController;
     [SerializeField] private SoundController hornSoundController;
+    [SerializeField] private SoundController pressureSoundController;
     [SerializeField] private SteamSoundPaletteSo palette;
 
     private HeatScalebar _heatScalebar;
@@ -33,6 +34,15 @@ public class SteamScalebar : Scalebar
             _heatScalebar.Value * currentParameter.heatMod) * Time.deltaTime;
 
         ChangeValue(currentValue);
+
+        if (currentValue.IsBetweenRange(0.7f, 1))
+        {
+            pressureSoundController.Play(palette.pressureClip, currentValue, false);
+        }
+        else
+        {
+            pressureSoundController.Stop();
+        }
         
         if (Value < 1 && _isCounting)
         {

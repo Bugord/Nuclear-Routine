@@ -7,4 +7,5 @@ public class SteamSoundPaletteSo : ScriptableObject
 {
     public List<AudioClip> steamClips;
     public List<AudioClip> hornClips;
+    public AudioClip pressureClip;
 }
