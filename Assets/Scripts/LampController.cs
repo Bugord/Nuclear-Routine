@@ -20,7 +20,10 @@ public class LampController : MonoBehaviour
 
     private void SwitchLight(bool isOn)
     {
-        DOTween.To(() => light.intensity, x => light.intensity = x, isOn ? 0.3f : 0, 0.2f);
+        DOTween.Sequence(this).AppendInterval(0.1f).AppendCallback(() =>
+        {
+            DOTween.To(() => light.intensity, x => light.intensity = x, isOn ? 0.3f : 0, 0.2f);
+        }).Play();
     }
 
     private void Update()

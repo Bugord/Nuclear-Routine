@@ -12,6 +12,8 @@ public class LightManager : MonoBehaviour
     [SerializeField] private GameObject alarmSound;
     [SerializeField] private GameObject reserveLight;
 
+    [SerializeField] private SoundController lightSoundController;
+
     public Action<bool> LightSwitched;
 
     void Awake()
@@ -22,6 +24,7 @@ public class LightManager : MonoBehaviour
     public void EnableAlarmLight(bool isSoundOn)
     {
         LightSwitched?.Invoke(false);
+        lightSoundController.Play(SoundManager.Instance.GetAudioClip("LightTurnOff"));
         alarmSound.SetActive(isSoundOn);
         normalLight.SetActive(false);
         alarmLight.SetActive(true);
@@ -30,6 +33,7 @@ public class LightManager : MonoBehaviour
     
     public void EnableReserveLight()
     {
+        lightSoundController.Play(SoundManager.Instance.GetAudioClip("LightTurnOff"));
         LightSwitched?.Invoke(false);
         normalLight.SetActive(false);
         alarmLight.SetActive(false);
@@ -38,6 +42,7 @@ public class LightManager : MonoBehaviour
 
     public void EnableNormalLight()
     {
+        lightSoundController.Play(SoundManager.Instance.GetAudioClip("LightTurnOn"));
         LightSwitched?.Invoke(true);
         normalLight.SetActive(true);
         alarmLight.SetActive(false);
