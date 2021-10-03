@@ -4,6 +4,9 @@ using UnityEngine;
 public class Valve : MonoBehaviour
 {
     [SerializeField] private float waterMod;
+    [SerializeField] private ValveSoundPaletteSo soundPalette;
+    [SerializeField] private SoundController valveSoundController;
+    [SerializeField] private SoundController waterSoundController;
     
     private Camera _myCam;
     private Vector3 _screenPos;
@@ -34,6 +37,8 @@ public class Valve : MonoBehaviour
     private void OnMouseUp()
     {
         _isDragged = false;
+        valveSoundController.Stop();
+        waterSoundController.Play(soundPalette.waterEndSound, true);
     }
 
     private void OnMouseDrag()
@@ -51,5 +56,8 @@ public class Valve : MonoBehaviour
         }
         transform.eulerAngles = new Vector3(0, 0, angle + _angleOffset);
         _lastAngle = angle;
+        
+        valveSoundController.Play(soundPalette.valveSound);
+        waterSoundController.Play(soundPalette.waterSound);
     }
 }

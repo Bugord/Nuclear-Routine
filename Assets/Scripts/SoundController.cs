@@ -16,7 +16,7 @@ public class SoundController : MonoBehaviour
     {
         if (skipCurrent)
         {
-            audio.Stop();
+            Stop();
         }
         Play(clip);
     }
@@ -35,5 +35,10 @@ public class SoundController : MonoBehaviour
                 audio.Play();
             }
         }
+    }
+
+    public void Stop()
+    {
+        audio.Stop();
     }
 }

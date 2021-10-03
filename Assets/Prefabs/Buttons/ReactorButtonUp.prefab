@@ -125,10 +125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   palette: {fileID: 11400000, guid: f5a799134c0a74cf2a3f849e88989e8d, type: 2}
-  sterjenGroup: 0
-  isUp: 1
   soundController: {fileID: 4456831719203180395}
   soundPalette: {fileID: 11400000, guid: 1e67d8bda97c740169185cc47f9cee0c, type: 2}
+  sterjenGroup: 0
+  isUp: 1
 --- !u!82 &629448509104271376
 AudioSource:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ AudioSource:
   m_GameObject: {fileID: 3073366776488082328}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 870670422795483039, guid: 4c624930ace064f80b51418c331007a7, type: 2}
+  OutputAudioMixerGroup: {fileID: -7930085130995466248, guid: 4c624930ace064f80b51418c331007a7, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
