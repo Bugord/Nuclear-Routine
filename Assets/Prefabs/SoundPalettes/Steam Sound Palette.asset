@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86706af2d7a7144899cb063def0db2f7, type: 3}
+  m_Name: Steam Sound Palette
+  m_EditorClassIdentifier: 
+  steamClips:
+  - {fileID: 8300000, guid: 9846f6363426e42ca82e003f337bc134, type: 3}
+  - {fileID: 8300000, guid: fbf6cae7e9b5b4b2ebeb632c24b20c8e, type: 3}
+  - {fileID: 8300000, guid: d04cb4a5d73334d9b9045e1d583c96f0, type: 3}
+  hornClips:
+  - {fileID: 8300000, guid: bef1b7b49f2e94be0bcc1e6f7f4d3d4d, type: 3}
+  - {fileID: 8300000, guid: 465424a4fc1364792b3526d8f8a7456e, type: 3}
+  - {fileID: 8300000, guid: 62a6cd9de968044979ae903bbb169880, type: 3}
+  - {fileID: 8300000, guid: cc8989e92143347bb9095cd0354cd820, type: 3}

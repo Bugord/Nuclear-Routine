@@ -57,5 +57,6 @@ public class SteamDown : MonoBehaviour
     private void OnMouseUp()
     {
         transform.DOMoveY(_initialYPos, 0.3f).OnComplete(() => _isDragged = false);
+        _steamScalebar.StopSteamSound();
     }
 }
