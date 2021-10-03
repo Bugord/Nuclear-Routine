@@ -12,6 +12,8 @@ public class FuelController : MonoBehaviour
 
     [SerializeField] private float _deepChangeSpeed = 0.5f;
 
+    private HeatScalebar _heatScalebar;
+    [SerializeField] private float maxIntensity, minIntensity;
     private void Awake()
     {
         _sterjenGroupDeep = new Dictionary<SterjenGroup, float>
@@ -38,6 +40,8 @@ public class FuelController : MonoBehaviour
                 GetComponentsInChildren<SterjenController>().Where(x => x.SterjenGroup == SterjenGroup.Blue).ToList()
             }
         };
+
+        _heatScalebar = ScalebarManager.Instance.HeatScalebar;
     }
 
     private void Start()
@@ -45,11 +49,23 @@ public class FuelController : MonoBehaviour
         allSterjenControllers.ForEach(x => x.ChangeDeep(_sterjenGroupDeep[x.SterjenGroup]));
     }
 
+    private void Update()
+    {
+        if (_heatScalebar.Value >= 0.8f)
+        {
+            var heatLevel = (_heatScalebar.Value - 0.8f) / 0.2f;
+            foreach (var sterjenController in allSterjenControllers)
+            {
+                sterjenController.DoPerlin(Mathf.Lerp(minIntensity, maxIntensity, heatLevel));
+            }
+        }
+    }
+
     public float GetTotalDeep()
     {
         return _sterjenGroupDeep.Sum(x => x.Value);
     }
-    
+
     public void FuelDown(SterjenGroup sterjenGroup)
     {
         _sterjenGroupDeep[sterjenGroup] =
