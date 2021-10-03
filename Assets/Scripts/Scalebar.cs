@@ -1,11 +1,19 @@
 using System;
 using UnityEngine;
 
+public enum Difficulty
+{
+    Easy,
+    Normal,
+    Hard
+}
 public abstract class Scalebar : MonoBehaviour
 {
     public float Value => _value;
     [SerializeField] private float _value;
     public Action<float> ValueChanged { get; set; }
+    [SerializeField] protected Difficulty _currentDifficulty;
+    protected int _currentDifficultyId;
 
     protected void ChangeValue(float value)
     {

@@ -1,13 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using ScriptableObjects.ScalebarsParameters;
+using UnityEngine;
 
 public class PowerScalebar : Scalebar
 {
-    [SerializeField] private float baseValue;
-    [SerializeField] private float increasedMod;
-    [SerializeField] private float decreaseMod;
-    [SerializeField] private float steamMin;
-    [SerializeField] private float steamMax;
-    
+    [SerializeField] private List<PowerScalebarParametersSO> _powerScalebarParameters;
     private SteamScalebar _steamScalebar;
 
     private void Awake()
@@ -17,18 +14,19 @@ public class PowerScalebar : Scalebar
 
     protected override void Tick()
     {
+        var currentParameters = _powerScalebarParameters[_currentDifficultyId];
         var currentValue = Value;
-        if (_steamScalebar.Value < steamMin)
+        if (_steamScalebar.Value < currentParameters.steamMin)
         {
-            currentValue -= baseValue * decreaseMod * Time.deltaTime;
+            currentValue -= currentParameters.baseValue * currentParameters.decreaseMod * Time.deltaTime;
         }
-        else if (_steamScalebar.Value > steamMax)
+        else if (_steamScalebar.Value > currentParameters.steamMax)
         {
-            currentValue += baseValue * increasedMod * Time.deltaTime;
+            currentValue += currentParameters.baseValue * currentParameters.increasedMod * Time.deltaTime;
         }
         else
         {
-            currentValue += baseValue * Time.deltaTime;
+            currentValue += currentParameters.baseValue * Time.deltaTime;
         }
         
         ChangeValue(currentValue);
