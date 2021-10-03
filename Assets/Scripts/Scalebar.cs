@@ -44,6 +44,9 @@ public abstract class Scalebar : MonoBehaviour
 
     private void Update()
     {
-        Tick();
+        if (!ScalebarManager.Instance.isFreezed)
+        {
+            Tick();
+        }
     }
 }

@@ -9,6 +9,8 @@ public class ScalebarManager : MonoBehaviour
     public PowerScalebar PowerScalebar;
     public SteamScalebar SteamScalebar;
     public WaterScalebar WaterScalebar;
+
+    public bool isFreezed;
     
     private void Awake()
     {

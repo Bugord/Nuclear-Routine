@@ -36,11 +36,13 @@ public class SteamScalebar : Scalebar
         
         if (Value < 1 && _isCounting)
         {
+            LightManager.Instance.EnableNormalLight();
             StopCoroutine(_explodeTimer);
             _isCounting = false;
         }
         if (Value == 1 && !_isCounting)
         {
+            LightManager.Instance.EnableAlarmLight(true);
             _explodeTimer = StartCoroutine(ExplodeTimer());
             _isCounting = true;
         }

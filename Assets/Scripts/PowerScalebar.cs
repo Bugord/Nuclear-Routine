@@ -41,11 +41,13 @@ public class PowerScalebar : Scalebar
         
         if (Value > 0 && _isCounting)
         {
+            LightManager.Instance.EnableNormalLight();
             StopCoroutine(_blackoutTimer);
             _isCounting = false;
         }
         if (Value == 0 && !_isCounting)
         {
+            LightManager.Instance.EnableReserveLight();
             _blackoutTimer = StartCoroutine(BlackoutTimer());
             _isCounting = true;
         }
