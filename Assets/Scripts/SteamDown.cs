@@ -37,13 +37,14 @@ public class SteamDown : MonoBehaviour
         if (_initialYPos + (mouseWorldPos.y - _initialClickPosY) < _initialYPos + maxDistance)
         {
             transform.position = new Vector3(transform.position.x, _initialYPos + maxDistance);
-            _steamScalebar.DecreaseValue(steamDecreaseSpeed * Time.deltaTime);
+            _steamScalebar.DecreaseValue(steamDecreaseSpeed * Time.deltaTime, 1);
         }
         else if (mouseWorldPos.y < _initialClickPosY)
         {
             transform.position =
                 new Vector3(transform.position.x, _initialYPos + (mouseWorldPos.y - _initialClickPosY));
-            _steamScalebar.DecreaseValue(steamDecreaseSpeed * ((mouseWorldPos.y - _initialClickPosY) / maxDistance) * Time.deltaTime);
+            var decreaseValueFactor = ((mouseWorldPos.y - _initialClickPosY) / maxDistance);
+            _steamScalebar.DecreaseValue(steamDecreaseSpeed * decreaseValueFactor * Time.deltaTime, decreaseValueFactor);
         }
         else
         {

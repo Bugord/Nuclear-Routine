@@ -28,14 +28,18 @@ public class SteamScalebar : Scalebar
         ChangeValue(currentValue);
     }
 
-    public void DecreaseValue(float value)
+    public void DecreaseValue(float value, float decreaseFactor)
     {
-        if (value.IsBetweenRange(0.0098f, 0.01f))
+        if (Value - value <= 0)
+        {
+            decreaseFactor = 0;
+        }
+        if (decreaseFactor.IsBetweenRange(0.8f, 1))
         {
             hornSoundController.Play(palette.hornClips.GetRandomItem());
         }
 
-        steamSoundController.Play(palette.steamClips.GetRandomItem(), value * 100);
+        steamSoundController.Play(palette.steamClips.GetRandomItem(), decreaseFactor);
         ChangeValue(Value - value);
     }
 

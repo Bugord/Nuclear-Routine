@@ -13,6 +13,8 @@ public class FuelController : MonoBehaviour
 
     private HeatScalebar _heatScalebar;
     [SerializeField] private float maxIntensity, minIntensity;
+    [SerializeField] private SoundController radiationSoundController;
+    [SerializeField] private RadiationSoundPaletteSo radiationPalette;
     private void Awake()
     {
         _sterjenGroupDeep = new Dictionary<SterjenGroup, float>
@@ -53,9 +55,11 @@ public class FuelController : MonoBehaviour
         if (_heatScalebar.Value >= 0.8f)
         {
             var heatLevel = (_heatScalebar.Value - 0.8f) / 0.2f;
+            var intensity = Mathf.Lerp(minIntensity, maxIntensity, heatLevel);
+            radiationSoundController.Play(radiationPalette.GetRadiationClip(heatLevel), 1, false, true);
             foreach (var sterjenController in allSterjenControllers)
             {
-                sterjenController.DoPerlin(Mathf.Lerp(minIntensity, maxIntensity, heatLevel), heatLevel);
+                sterjenController.DoPerlin(intensity, heatLevel);
             }
         }
     }

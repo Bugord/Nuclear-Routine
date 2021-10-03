@@ -19,9 +19,13 @@ public class SoundController : MonoBehaviour
         Play(clip, 1);
     }
     
-    public void Play(AudioClip clip, float volumeFactor, bool skipCurrent)
+    public void Play(AudioClip clip, float volumeFactor, bool skipCurrent, bool allowReplace = false)
     {
         if (skipCurrent)
+        {
+            Stop();
+        }
+        if (audio.clip != clip)
         {
             Stop();
         }
@@ -30,13 +34,13 @@ public class SoundController : MonoBehaviour
 
     public void Play(AudioClip clip, float volumeFactor = 1)
     {
+        var distance = (transform.position - Vector3.zero).x;
+        var soundFactor = distance * 100 / Screen.width;
+        audio.volume = (1 - Mathf.Abs(soundFactor)) * volumeFactor;
         if (!audio.isPlaying)
         {
             audio.clip = clip;
-            var distance = (transform.position - Vector3.zero).x;
-            var soundFactor = distance * 100 / Screen.width;
             audio.panStereo = soundFactor;
-            audio.volume = (1 - Mathf.Abs(soundFactor)) * volumeFactor;
             if (audio.volume > 0)
             {
                 audio.Play();
