@@ -35,7 +35,7 @@ public class SteamScalebar : Scalebar
 
         ChangeValue(currentValue);
 
-        if (currentValue.IsBetweenRange(0.7f, 1))
+        if (Value.IsBetweenRange(0.8f, 1))
         {
             pressureSoundController.Play(palette.pressureClip, currentValue, false);
         }
