@@ -12,6 +12,7 @@ public class SteamScalebar : Scalebar
     [SerializeField] private SoundController steamSoundController;
     [SerializeField] private SoundController hornSoundController;
     [SerializeField] private SoundController pressureSoundController;
+    [SerializeField] private SoundController turbineSoundController;
     [SerializeField] private SteamSoundPaletteSo palette;
 
     private HeatScalebar _heatScalebar;
@@ -48,6 +49,8 @@ public class SteamScalebar : Scalebar
         {
             pressureSoundController.Stop();
         }
+        
+        turbineSoundController.Play(palette.turbineClip, Value*1.5f);
         
         if (Value < 1 && _isCounting)
         {

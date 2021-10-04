@@ -22,3 +22,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62a6cd9de968044979ae903bbb169880, type: 3}
   - {fileID: 8300000, guid: cc8989e92143347bb9095cd0354cd820, type: 3}
   pressureClip: {fileID: 8300000, guid: 07bf4e898371b446083ad02bef46b930, type: 3}
+  turbineClip: {fileID: 8300000, guid: ba243cc710cc4484f9ecd59ced99987d, type: 3}
