@@ -29,7 +29,7 @@ public class ModalDialog : MonoBehaviour
     [SerializeField] private VerticalLayoutGroup _horizontalImageLayoutGroup;
     [SerializeField] private Image panelImage;
     
-    public event Action Closed;
+    public Action Closed;
 
     public void SetContent(ModalContentSO content)
     {

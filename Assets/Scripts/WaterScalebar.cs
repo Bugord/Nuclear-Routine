@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ScriptableObjects.ScalebarsParameters;
 using UnityEngine;
 
@@ -29,4 +30,5 @@ public class WaterScalebar : Scalebar
 
         ChangeValue(currentValue);
     }
+
 }

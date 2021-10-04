@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062cfb93ab272e6499a7aff1f1c9907c, type: 3}
   m_Name: Normal Heat Scalebar Parameters SO
   m_EditorClassIdentifier: 
-  baseCool: 0
-  waterMinLevel: 0
-  waterMaxLevel: 0
-  waterMinLevelMod: 0
-  waterMaxLevelMod: 0
-  fuelDeepMod: 0
+  baseCool: 0.01
+  waterMinLevel: 0.7
+  waterMaxLevel: 0.7
+  waterMinLevelMod: 2
+  waterMaxLevelMod: 4
+  waterBaseMod: 0.5
+  fuelDeepMod: 0.03

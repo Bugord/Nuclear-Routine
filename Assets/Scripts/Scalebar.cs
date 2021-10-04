@@ -49,4 +49,15 @@ public abstract class Scalebar : MonoBehaviour
             Tick();
         }
     }
+
+    private void OnValidate()
+    {
+        _currentDifficultyId = (int) _currentDifficulty;
+    }
+    
+    public void SetParameterId(int id)
+    {
+        _currentDifficultyId = id;
+        _currentDifficulty = (Difficulty) id;
+    }
 }

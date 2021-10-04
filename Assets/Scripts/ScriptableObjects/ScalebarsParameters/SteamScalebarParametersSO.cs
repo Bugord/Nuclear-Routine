@@ -8,5 +8,6 @@ namespace ScriptableObjects.ScalebarsParameters
         public float heatMod;
         public float waterMod;
         public float baseDecrease;
+        public float steamMod;
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8619d6d61e3e3047afeaa41cae34a5b, type: 3}
   m_Name: Normal Steam Scalebar Parameters SO
   m_EditorClassIdentifier: 
-  heatMod: 0
-  waterMod: 0
-  baseDecrease: 0
+  heatMod: 0.5
+  waterMod: 0.2
+  baseDecrease: 0.01
+  steamMod: 0.1

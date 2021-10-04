@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3007819235155e041a0d117ba44782bc, type: 3}
   m_Name: Normal Water Scalebar Parameters SO
   m_EditorClassIdentifier: 
-  baseWaterReduction: 0.1
+  baseWaterReduction: -0.5
   heatMod: 0
   heatMinMod: 0
   heatMaxMod: 0

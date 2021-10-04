@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -25,19 +26,24 @@ public class GameOverController : MonoBehaviour
     {
         Debug.Log("STEAM KABOOOOOM");
         ScalebarManager.Instance.isFreezed = true;
-        LightManager.Instance.EnableAlarmLight(false);
         gameOverSoundController.Play(SoundManager.Instance.GetAudioClip("GameLost"));
         explosionSoundController.Play(SoundManager.Instance.GetAudioClip("Explosion"));
-        Camera.main.DOShakePosition(3, 0.2f);
+        StartCoroutine(CameraShake());
     }
 
     private void OnHeatExplode()
     {
         Debug.Log("KABOOOOOM");
         ScalebarManager.Instance.isFreezed = true;
-        LightManager.Instance.EnableAlarmLight(false);
         gameOverSoundController.Play(SoundManager.Instance.GetAudioClip("GameLost"));
         explosionSoundController.Play(SoundManager.Instance.GetAudioClip("Explosion"));
+        StartCoroutine(CameraShake());
+    }
+
+    IEnumerator CameraShake()
+    {
+        yield return new WaitForSeconds(0.5f);
+        LightManager.Instance.EnableAlarmLight(false);
         Camera.main.DOShakePosition(3, 0.2f);
     }
 }

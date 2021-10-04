@@ -15,6 +15,9 @@ public class FuelController : MonoBehaviour
     [SerializeField] private float maxIntensity, minIntensity;
     [SerializeField] private SoundController radiationSoundController;
     [SerializeField] private RadiationSoundPaletteSo radiationPalette;
+
+    private bool _isStuck;
+    private SterjenGroup _stuckGroup;
     private void Awake()
     {
         _sterjenGroupDeep = new Dictionary<SterjenGroup, float>
@@ -71,6 +74,7 @@ public class FuelController : MonoBehaviour
 
     public void FuelDown(SterjenGroup sterjenGroup)
     {
+
         _sterjenGroupDeep[sterjenGroup] =
             Mathf.Clamp01(_sterjenGroupDeep[sterjenGroup] + _deepChangeSpeed * Time.deltaTime);
 
@@ -79,9 +83,18 @@ public class FuelController : MonoBehaviour
 
     public void FuelUp(SterjenGroup sterjenGroup)
     {
+        if(_isStuck && sterjenGroup == _stuckGroup)
+            return;
+        
         _sterjenGroupDeep[sterjenGroup] =
             Mathf.Clamp01(_sterjenGroupDeep[sterjenGroup] - _deepChangeSpeed * Time.deltaTime);
 
         _sterjenControllers[sterjenGroup].ForEach(x => x.ChangeDeep(_sterjenGroupDeep[sterjenGroup]));
+    }
+
+    public void StuckRods(SterjenGroup sterjenGroup)
+    {
+        _isStuck = true;
+        _stuckGroup = sterjenGroup;
     }
 }

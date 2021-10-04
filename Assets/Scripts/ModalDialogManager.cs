@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 namespace DefaultNamespace
 {
     public class ModalDialogManager : MonoBehaviour
     {
+        public static ModalDialogManager Instance;
         [SerializeField] private ModalContentSO modalContent;
         [SerializeField] private ModalDialog modalDialogPrefab;
         [SerializeField] private ModalDialog modalDialog;
@@ -16,15 +20,40 @@ namespace DefaultNamespace
         [SerializeField] private List<ModalContentSO> tutorialDialogs;
         private int _currentTutorialId;
         private Canvas _canvas;
+        private bool _isTutorial;
+        private Action _closeCallback;
 
+        public bool isTutorialPassed;
+
+        [SerializeField] private GameObject tutorialButton;
+        [SerializeField] private GameObject skipTutorialButton;
+        
         private void Awake()
         {
+            Instance = this;
             _canvas = FindObjectOfType<Canvas>();
             modalDialog.Closed += OnModalDialogClosed;
+
+            StartCoroutine(StartTutorial());
+        }
+
+        public void OpenModal(ModalContentSO content, Action callback)
+        {
+            ScalebarManager.Instance.isFreezed = true;
+            tutorialButton.SetActive(false);
+            modalDialog.SetContent(content);
+            _closeCallback = callback;
         }
 
         private void OnModalDialogClosed()
         {
+            _closeCallback?.Invoke();
+            if (isTutorialPassed)
+            {
+                tutorialButton.SetActive(true);
+                ScalebarManager.Instance.isFreezed = false;
+            }
+
             LoadNextDialog();
         }
 
@@ -36,20 +65,32 @@ namespace DefaultNamespace
 
         public void LaunchTutorial()
         {
+            skipTutorialButton.SetActive(true);
+            tutorialButton.SetActive(false);
+            _closeCallback = null;
             ScalebarManager.Instance.isFreezed = true;
+            _isTutorial = true;
+            isTutorialPassed = false;
             _currentTutorialId = -1;
             LoadNextDialog();
         }
 
         private void LoadNextDialog()
         {
-            _currentTutorialId++;
-            if (_currentTutorialId == tutorialDialogs.Count)
+            if (_isTutorial)
             {
-                ScalebarManager.Instance.isFreezed = false;
-                return;
+                _currentTutorialId++;
+                if (_currentTutorialId == tutorialDialogs.Count)
+                {
+                    _isTutorial = false;
+                    isTutorialPassed = true;
+                    skipTutorialButton.SetActive(false);
+                    tutorialButton.SetActive(true);
+                    return;
+                }
+
+                modalDialog.SetContent(tutorialDialogs[_currentTutorialId]);
             }
-            modalDialog.SetContent(tutorialDialogs[_currentTutorialId]);
         }
 
         private void Update()
@@ -69,6 +110,21 @@ namespace DefaultNamespace
         {
             yield return new WaitForEndOfFrame();
             modalDialog.transform.Translate(new Vector3(10, 10));
+        }
+
+        private IEnumerator StartTutorial()
+        {
+            yield return new WaitForSeconds(1);
+            LaunchTutorial();
+        }
+
+        public void SkipTutorial()
+        {
+            isTutorialPassed = true;
+            _isTutorial = false;
+            modalDialog.CloseDialog();
+            skipTutorialButton.SetActive(false);
+            tutorialButton.SetActive(true);
         }
     }
 }

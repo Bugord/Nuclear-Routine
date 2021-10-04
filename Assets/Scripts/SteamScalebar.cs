@@ -33,6 +33,11 @@ public class SteamScalebar : Scalebar
         currentValue += (-currentParameter.baseDecrease + _waterScalebar.Value * currentParameter.waterMod *
             _heatScalebar.Value * currentParameter.heatMod) * Time.deltaTime;
 
+        if (Value > 0.7f)
+        {
+            currentValue += currentParameter.steamMod * Value * Time.deltaTime;
+        }
+
         ChangeValue(currentValue);
 
         if (Value.IsBetweenRange(0.8f, 1))

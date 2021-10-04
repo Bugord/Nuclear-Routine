@@ -16,6 +16,7 @@ public class Valve : MonoBehaviour
     private float _lastAngle;
 
     private float value;
+    private bool _isOver;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class Valve : MonoBehaviour
     {
         if(!_isDragged)
             CursorManager.Instance.SetCursor(CursorType.BeforeGrab);
+        _isOver = true;
     }
 
     private void OnMouseDown()
@@ -39,6 +41,7 @@ public class Valve : MonoBehaviour
     {
         if(!_isDragged)
             CursorManager.Instance.SetCursor(CursorType.Pointer);
+        _isOver = false;
     }
 
     private void SetAngleOffset()
@@ -53,7 +56,7 @@ public class Valve : MonoBehaviour
         _isDragged = false;
         valveSoundController.Stop();
         waterSoundController.Play(soundPalette.waterEndSound, true);
-        CursorManager.Instance.SetCursor(CursorType.Pointer);
+        CursorManager.Instance.SetCursor(_isOver ? CursorType.BeforeGrab : CursorType.Pointer);
     }
 
     private void OnMouseDrag()

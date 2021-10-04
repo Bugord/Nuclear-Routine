@@ -18,7 +18,7 @@ public class ButtonComponent : MonoBehaviour
 
     protected virtual void OnMouseDown()
     {
-        _renderer.sprite = palette.pressed;
+        SetSpritePressed();
         soundController.Play(soundPalette.pressed);
     }
 
@@ -34,8 +34,18 @@ public class ButtonComponent : MonoBehaviour
 
     protected virtual void OnMouseUp()
     {
-        _renderer.sprite = palette.released;
+        SetSpriteReleased();
         _isClamped = false;
         soundController.Play(soundPalette.released, true);
+    }
+
+    protected void SetSpritePressed()
+    {
+        _renderer.sprite = palette.pressed;
+    }
+    
+    protected void SetSpriteReleased()
+    {
+        _renderer.sprite = palette.released;
     }
 }

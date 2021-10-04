@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ff00c139254d258391d02df7135cee, type: 3}
   m_Name: Easy Power Scalebar Parameters SO
   m_EditorClassIdentifier: 
-  baseValue: 0.01
+  baseDecrease: 0
+  baseValue: 0.03
   increasedMod: 2
   decreaseMod: 3
-  steamMin: 0.1
+  steamMin: 0.3
   steamMax: 0.8

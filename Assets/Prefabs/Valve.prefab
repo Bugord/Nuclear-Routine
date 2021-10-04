@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103504708439915723}
   - component: {fileID: 103504708439915722}
+  - component: {fileID: 5936414370588715794}
   m_Layer: 0
   m_Name: Valve
   m_TagString: Untagged
@@ -85,6 +86,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &5936414370588715794
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103504708439915720}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.305
 --- !u!1 &2754642895142468232
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd449e141503a749a37124b9a910ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterMod: 0.0003
+  waterMod: 0.0005
   soundPalette: {fileID: 11400000, guid: 973d03b2a2f2640eba23b72a96fca4d3, type: 2}
   valveSoundController: {fileID: 2726537117809353993}
   waterSoundController: {fileID: 3452901374619762025}
@@ -336,12 +353,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.16
+  m_Radius: 0.4
 --- !u!1 &8726101216509841706
 GameObject:
   m_ObjectHideFlags: 0

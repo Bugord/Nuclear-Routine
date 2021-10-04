@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Easy Steam Scalebar Parameters SO
   m_EditorClassIdentifier: 
   heatMod: 0.5
-  waterMod: 0.3
-  baseDecrease: 0.01
+  waterMod: 0.2
+  baseDecrease: 0.06
+  steamMod: 0.05
