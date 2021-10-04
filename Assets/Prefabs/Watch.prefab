@@ -216,4 +216,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   label: {fileID: 6449715533655578855}
   timeMultiplier: 1
+  _startTimeInSeconds: 28800
   _timeInSeconds: 28800
