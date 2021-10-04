@@ -14,6 +14,8 @@ public class SteamScalebar : Scalebar
     [SerializeField] private SoundController pressureSoundController;
     [SerializeField] private SoundController turbineSoundController;
     [SerializeField] private SteamSoundPaletteSo palette;
+    [SerializeField] private GameObject turbineSteamParticles;
+    [SerializeField] private GameObject steamParticles;
 
     private HeatScalebar _heatScalebar;
     private WaterScalebar _waterScalebar;
@@ -51,10 +53,12 @@ public class SteamScalebar : Scalebar
 
         if (Value.IsBetweenRange(0.8f, 1))
         {
+            turbineSteamParticles.SetActive(true);
             pressureSoundController.Play(palette.pressureClip, currentValue, false);
         }
         else
         {
+            turbineSteamParticles.SetActive(false);
             pressureSoundController.Stop();
         }
         
@@ -84,7 +88,9 @@ public class SteamScalebar : Scalebar
         {
             hornSoundController.Play(palette.hornClips.GetRandomItem());
         }
-
+        
+        steamParticles.SetActive(Value > 0);
+        
         steamSoundController.Play(palette.steamClips.GetRandomItem(), decreaseFactor);
         ChangeValue(Value - value);
     }
