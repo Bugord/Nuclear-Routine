@@ -20,7 +20,8 @@ namespace GameEvent
         private void Start()
         {
             StartCoroutine(StartEventsCoroutine());
-            shuffledGameEvents = _gameEvents.OrderBy(x => GUID.Generate()).ToList();
+            shuffledGameEvents = _gameEvents.ToList();
+            shuffledGameEvents.Shuffle();
         }
 
         [ContextMenu("Start Events")]
