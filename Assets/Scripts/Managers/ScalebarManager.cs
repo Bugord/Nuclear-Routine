@@ -10,10 +10,14 @@ public class ScalebarManager : MonoBehaviour
     public SteamScalebar SteamScalebar;
     public WaterScalebar WaterScalebar;
 
-    public bool isFreezed;
+    public bool isFreezed = true;
     
     private void Awake()
     {
         Instance = this;
+        if (Preferences.TutorialWasShown)
+        {
+            isFreezed = false;
+        }
     }
 }

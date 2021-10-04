@@ -35,7 +35,10 @@ namespace DefaultNamespace
             _canvas = FindObjectOfType<Canvas>();
             modalDialog.Closed += OnModalDialogClosed;
 
-            StartCoroutine(StartTutorial());
+            if (!Preferences.TutorialWasShown)
+            {
+                StartCoroutine(StartTutorial());
+            }
         }
 
         public void OpenModal(ModalContentSO content, Action callback = null)
@@ -89,6 +92,7 @@ namespace DefaultNamespace
                 {
                     _isTutorial = false;
                     isTutorialPassed = true;
+                    Preferences.TutorialWasShown = true;
                     skipTutorialButton.SetActive(false);
                     tutorialButton.SetActive(true);
                     return;
@@ -127,6 +131,7 @@ namespace DefaultNamespace
         {
             isTutorialPassed = true;
             _isTutorial = false;
+            Preferences.TutorialWasShown = true;
             modalDialog.CloseDialog();
             skipTutorialButton.SetActive(false);
             tutorialButton.SetActive(true);

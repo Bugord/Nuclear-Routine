@@ -2226,7 +2226,7 @@ MonoBehaviour:
   PowerScalebar: {fileID: 1522308409}
   SteamScalebar: {fileID: 1646028571}
   WaterScalebar: {fileID: 185089989}
-  isFreezed: 0
+  isFreezed: 1
 --- !u!4 &1000307422
 Transform:
   m_ObjectHideFlags: 0

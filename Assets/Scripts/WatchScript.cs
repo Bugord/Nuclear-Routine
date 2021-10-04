@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -29,7 +30,7 @@ public class WatchScript : MonoBehaviour
         
         var timeSpan = TimeSpan.FromSeconds(_timeInSeconds);
         DateTime time = DateTime.Today.Add(timeSpan);
-        string displayTime = time.ToString("hh:mm tt");
+        string displayTime = time.ToString("hh:mm tt", CultureInfo.InvariantCulture);
         label.SetText(displayTime);
         _timeInSeconds += Time.deltaTime * timeMultiplier;
         if (_timeInSeconds >= SecondsInDay)
