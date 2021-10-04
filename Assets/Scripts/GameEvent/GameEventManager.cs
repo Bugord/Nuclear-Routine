@@ -44,7 +44,7 @@ namespace GameEvent
         private IEnumerator StartEventsCoroutine()
         {
             yield return new WaitUntil(() => ModalDialogManager.Instance.isTutorialPassed);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(20);
             yield return new WaitUntil(() => ModalDialogManager.Instance.isTutorialPassed);
             StartEvents();
         }

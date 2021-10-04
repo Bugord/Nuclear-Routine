@@ -1050,9 +1050,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a2e0c8bf5b4f308c4d5a046f2c6ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventDuration: 5
+  EventDuration: 0
   eventModalContent: {fileID: 11400000, guid: 71a2e1c426215df419936085c99b4c08, type: 2}
-  cooldown: 3
+  cooldown: 30
   _valveGameObject: {fileID: 1026796273}
   _valveDynamicGameObject: {fileID: 272500923}
 --- !u!114 &314469344
@@ -1103,9 +1103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65ec85b93a3436cb615dbe7612a9d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventDuration: 5
+  EventDuration: 0
   eventModalContent: {fileID: 11400000, guid: f63214fbd3875d143b10abfb97440cf5, type: 2}
-  cooldown: 3
+  cooldown: 30
 --- !u!114 &314469347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,9 +1118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412eb58d22a440798bb3efb4714224ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventDuration: 5
+  EventDuration: 0
   eventModalContent: {fileID: 11400000, guid: 78073594659840242a617080b77fc26d, type: 2}
-  cooldown: 3
+  cooldown: 30
 --- !u!114 &314469348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,9 +1133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219ce1a16bff4edbb06195acbea0f623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventDuration: 5
+  EventDuration: 0
   eventModalContent: {fileID: 11400000, guid: 36e33fd38aa7f144fbfced52d7fdd08d, type: 2}
-  cooldown: 3
+  cooldown: 30
 --- !u!114 &314469349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,9 +1148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af66f8e1bcd943b3be29fcfa531b19a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventDuration: 5
+  EventDuration: 0
   eventModalContent: {fileID: 11400000, guid: 5af7cb092c5e33643b4c30807d6202f2, type: 2}
-  cooldown: 0
+  cooldown: 30
   _upReactorButtons:
   - {fileID: 864498242}
   - {fileID: 268315287}
@@ -1941,6 +1941,7 @@ GameObject:
   - component: {fileID: 860394709}
   - component: {fileID: 860394711}
   - component: {fileID: 860394710}
+  - component: {fileID: 860394712}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2009,6 +2010,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860394708}
   m_CullTransparentMesh: 1
+--- !u!61 &860394712
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860394708}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 649.04, y: 375.27}
+  m_EdgeRadius: 0
 --- !u!114 &864498242 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5510225412928588953, guid: aa91150167ccf4b28a9f9f77496b3a61, type: 3}
@@ -3270,6 +3297,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 736395880392887239, guid: 915edf96aab384f3ab59543dc254fd84, type: 3}
+      propertyPath: _value
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 736395880392887239, guid: 915edf96aab384f3ab59543dc254fd84, type: 3}
       propertyPath: _timeToBlackout
       value: 10

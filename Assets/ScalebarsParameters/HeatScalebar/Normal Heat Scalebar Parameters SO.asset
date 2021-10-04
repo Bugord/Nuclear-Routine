@@ -18,4 +18,4 @@ MonoBehaviour:
   waterMinLevelMod: 2
   waterMaxLevelMod: 4
   waterBaseMod: 0.5
-  fuelDeepMod: 0.03
+  fuelDeepMod: 0.02

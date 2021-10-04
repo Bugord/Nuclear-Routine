@@ -11,9 +11,8 @@ public class ReactorButton : ButtonComponent
 
     protected override void OnMouseDrag()
     {
-        if (_isDisabled)
-            return;
-        
+        if (_isDisabled || ScalebarManager.Instance.isFreezed) return;
+
         base.OnMouseDrag();
 
         if (isUp)
@@ -33,18 +32,13 @@ public class ReactorButton : ButtonComponent
 
     private protected new void OnMouseDown()
     {
-        if (!_isDisabled)
-        {
-            base.OnMouseDown();
-        }
-    }  
-    
-    private protected new void OnMouseUp()
-    {
-        if (!_isDisabled)
-        {
-            base.OnMouseUp();
-        }
+        if (_isDisabled || ScalebarManager.Instance.isFreezed) return;
+        base.OnMouseDown();
     }
 
+    private protected new void OnMouseUp()
+    {
+        if (_isDisabled || ScalebarManager.Instance.isFreezed) return;
+        base.OnMouseUp();
+    }
 }

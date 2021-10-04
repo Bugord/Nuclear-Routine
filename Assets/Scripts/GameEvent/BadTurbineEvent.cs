@@ -6,7 +6,7 @@
         {
             base.OnEventStart();
             
-            ScalebarManager.Instance.SteamScalebar.SetParameterId(2);
+            ScalebarManager.Instance.PowerScalebar.SetParameterId(2);
         }
 
         protected override void OnEventEnd()

@@ -31,9 +31,17 @@ public class SteamScalebar : Scalebar
     {
         var currentValue = Value;
         var currentParameter = _steamScalebarParameters[_currentDifficultyId];
-        currentValue += (-currentParameter.baseDecrease + _waterScalebar.Value * currentParameter.waterMod *
-            _heatScalebar.Value * currentParameter.heatMod) * Time.deltaTime;
+        currentValue += (-currentParameter.baseDecrease + _heatScalebar.Value * currentParameter.heatMod) * Time.deltaTime;
 
+        if (_waterScalebar.Value > 0.1)
+        {
+            currentValue += 1 * currentParameter.waterMod * Time.deltaTime;
+        }
+        else
+        {
+            currentValue -= 1 * currentParameter.waterMod * Time.deltaTime;
+        }
+        
         if (Value > 0.7f)
         {
             currentValue += currentParameter.steamMod * Value * Time.deltaTime;

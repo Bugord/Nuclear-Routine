@@ -1,6 +1,7 @@
 using System;
 using DefaultNamespace;
 using DG.Tweening;
+using GameEvent;
 using UnityEngine;
 
 public class SteamDown : MonoBehaviour
@@ -13,7 +14,7 @@ public class SteamDown : MonoBehaviour
     private bool _isDragged;
     private Camera _camera;
     private SteamScalebar _steamScalebar;
-
+    private bool _isOver;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class SteamDown : MonoBehaviour
     {
         if(!_isDragged)
             CursorManager.Instance.SetCursor(CursorType.BeforeGrab);
+        _isOver = true;
     }
 
     private void OnMouseDown()
@@ -46,10 +48,14 @@ public class SteamDown : MonoBehaviour
     {
         if(!_isDragged)
             CursorManager.Instance.SetCursor(CursorType.Pointer);
+        _isOver = false;
     }
 
     private void OnMouseDrag()
     {
+        if(ScalebarManager.Instance.isFreezed)
+            return;
+        
         var mouseWorldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
         if (_initialYPos + (mouseWorldPos.y - _initialClickPosY) < _initialYPos + maxDistance)
         {
@@ -73,7 +79,7 @@ public class SteamDown : MonoBehaviour
     {
         transform.DOMoveY(_initialYPos, 0.3f).OnComplete(() => _isDragged = false);
         _steamScalebar.StopSteamSound();
-        CursorManager.Instance.SetCursor(CursorType.Pointer);
+        CursorManager.Instance.SetCursor(_isOver ? CursorType.BeforeGrab : CursorType.Pointer);
     }
     
 }

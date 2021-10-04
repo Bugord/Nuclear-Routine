@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eed6957587e40e1a421aaa555249e04, type: 3}
   m_Name: event_power_usage
   m_EditorClassIdentifier: 
-  title: Power usage increased
+  title: Steam tank leaking
   sprite: {fileID: 0}
-  description: City is using more power than usual
+  description: It will loose more pressure
   modalLayout: 0
   position: {x: 250, y: -100}
   reverseContent: 0

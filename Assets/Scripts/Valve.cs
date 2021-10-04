@@ -61,6 +61,9 @@ public class Valve : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if(ScalebarManager.Instance.isFreezed)
+            return;
+
         var v3 = Input.mousePosition - _screenPos;
         var angle = Mathf.Atan2(v3.y, v3.x) * Mathf.Rad2Deg;
         
