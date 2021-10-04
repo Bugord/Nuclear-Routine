@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103504708439915723}
   - component: {fileID: 103504708439915722}
-  - component: {fileID: 5936414370588715794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Valve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,22 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5936414370588715794
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103504708439915720}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.305
 --- !u!1 &2754642895142468232
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc66bba942db94c7aadef0798898c8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &4931025126077744770
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +336,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -499,4 +482,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc66bba942db94c7aadef0798898c8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 0}
+  audioSource: {fileID: 0}

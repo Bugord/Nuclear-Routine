@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 49a02d3fbe520415ab8df2ca99d45503, type: 3}
-    totalSpriteSurfaceArea: 865915
+    totalSpriteSurfaceArea: 867259
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -52,6 +52,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 0fe00e70d93fb40f6b2f8520e1afd112, type: 3}
   - {fileID: 21300000, guid: 498d9fe0a607c4738b7190ac169b62d9, type: 3}
+  - {fileID: 21300000, guid: 8fd22d51caf9b4647b723d2734a14503, type: 3}
   - {fileID: 21300000, guid: e88a12e1be9959841a42ad79907c7ead, type: 3}
   - {fileID: 21300000, guid: 17c782a21f1bd4c9fbaa5c24f3914c4d, type: 3}
   - {fileID: 21300000, guid: d80bff735b07e1a48a18291655670893, type: 3}
@@ -87,6 +88,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Button_Up_Press
   - Red
+  - restart
   - Electro_indicator
   - Green
   - water_tank

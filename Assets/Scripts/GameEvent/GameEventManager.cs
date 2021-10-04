@@ -16,6 +16,8 @@ namespace GameEvent
         [SerializeField] private int _currentEventId;
 
         [SerializeField] private List<BaseGameEvent> shuffledGameEvents;
+        [SerializeField] private GameOverController gameOverController;
+        [SerializeField] private float timeToWinAfterLastEvent;
 
         private void Start()
         {
@@ -42,7 +44,7 @@ namespace GameEvent
         private IEnumerator StartEventsCoroutine()
         {
             yield return new WaitUntil(() => ModalDialogManager.Instance.isTutorialPassed);
-            yield return new WaitForSeconds(500);
+            yield return new WaitForSeconds(5);
             yield return new WaitUntil(() => ModalDialogManager.Instance.isTutorialPassed);
             StartEvents();
         }

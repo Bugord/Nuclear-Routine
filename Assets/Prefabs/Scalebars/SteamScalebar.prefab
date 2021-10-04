@@ -282,6 +282,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+--- !u!114 &2017368435560235250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5731468542276490895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f14a2dea2004b9aac9408ced57ed555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _value: 0.5
+  _currentDifficulty: 0
+  _steamScalebarParameters:
+  - {fileID: 11400000, guid: ed3ee2eca42576246bbea7ccd6104499, type: 2}
+  - {fileID: 11400000, guid: ff0ede17550a65745a5ea1194c50e86d, type: 2}
+  - {fileID: 11400000, guid: 32732f08f4a06d84f979e47a88e64ff3, type: 2}
+  steamSoundController: {fileID: 3260581630773516767}
+  hornSoundController: {fileID: 893021292806240405}
+  pressureSoundController: {fileID: 585615824985592955}
+  turbineSoundController: {fileID: 901170809803121741}
+  palette: {fileID: 11400000, guid: 93d8cb5624ce64d74ba73dc77b929daa, type: 2}
+  _timeToExplode: 10
 --- !u!1 &6204775488602193490
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,28 +588,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
---- !u!114 &2017368435560235250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5731468542276490895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f14a2dea2004b9aac9408ced57ed555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 0.5
-  _currentDifficulty: 0
-  _steamScalebarParameters:
-  - {fileID: 11400000, guid: ed3ee2eca42576246bbea7ccd6104499, type: 2}
-  steamSoundController: {fileID: 3260581630773516767}
-  hornSoundController: {fileID: 893021292806240405}
-  pressureSoundController: {fileID: 585615824985592955}
-  turbineSoundController: {fileID: 901170809803121741}
-  palette: {fileID: 11400000, guid: 93d8cb5624ce64d74ba73dc77b929daa, type: 2}
-  _timeToExplode: 5
 --- !u!1001 &7674030237569338437
 PrefabInstance:
   m_ObjectHideFlags: 0

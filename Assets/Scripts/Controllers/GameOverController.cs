@@ -1,15 +1,24 @@
 ﻿using System;
 using System.Collections;
+using DefaultNamespace;
 using DG.Tweening;
 using UnityEngine;
 
 public class GameOverController : MonoBehaviour
 {
+    public static GameOverController Instance;
     [SerializeField] private SoundController gameOverSoundController;
     [SerializeField] private SoundController explosionSoundController;
 
+    [SerializeField] private float timeToWin;
+    [SerializeField] private EndGameModal _endGameModal;
+
+    public bool isLost { get; private set; }
+    
     private void Awake()
     {
+        Instance = this;
+        
         ScalebarManager.Instance.HeatScalebar.HeatExplode += OnHeatExplode;
         ScalebarManager.Instance.SteamScalebar.SteamExplode += OnSteamExplode;
         ScalebarManager.Instance.PowerScalebar.Blackout += OnBlackout;
@@ -21,6 +30,7 @@ public class GameOverController : MonoBehaviour
         ScalebarManager.Instance.isFreezed = true;
         LightManager.Instance.EnableAlarmLight(false);
         gameOverSoundController.Play(SoundManager.Instance.GetAudioClip("GameLost"));
+        StartCoroutine(LostTimer(LostReason.Power));
     }
 
     private void OnSteamExplode()
@@ -30,6 +40,7 @@ public class GameOverController : MonoBehaviour
         gameOverSoundController.Play(SoundManager.Instance.GetAudioClip("GameLost"));
         explosionSoundController.Play(SoundManager.Instance.GetAudioClip("Explosion"));
         StartCoroutine(CameraShake());
+        StartCoroutine(LostTimer(LostReason.Steam));
     }
 
     private void OnHeatExplode()
@@ -39,6 +50,7 @@ public class GameOverController : MonoBehaviour
         gameOverSoundController.Play(SoundManager.Instance.GetAudioClip("GameLost"));
         explosionSoundController.Play(SoundManager.Instance.GetAudioClip("Explosion"));
         StartCoroutine(CameraShake());
+        StartCoroutine(LostTimer(LostReason.Heat));
     }
 
     IEnumerator CameraShake()
@@ -46,5 +58,25 @@ public class GameOverController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         LightManager.Instance.EnableAlarmLight(false);
         Camera.main.DOShakePosition(3, 0.2f);
+    }
+
+    private void OnVictory()
+    {
+        _endGameModal.OpenEndDialog(false);
+    }
+
+    private void Update()
+    {
+        if (WatchScript.Instance.TimePassed >= timeToWin)
+        {
+            OnVictory();
+        }
+    }
+
+    private IEnumerator LostTimer(LostReason lostReason)
+    {
+        isLost = true;
+        yield return new WaitForSeconds(2);
+        _endGameModal.OpenEndDialog(true, lostReason);
     }
 }

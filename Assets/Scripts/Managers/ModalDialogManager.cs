@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using GameEvent;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,8 +38,11 @@ namespace DefaultNamespace
             StartCoroutine(StartTutorial());
         }
 
-        public void OpenModal(ModalContentSO content, Action callback)
+        public void OpenModal(ModalContentSO content, Action callback = null)
         {
+            if(GameOverController.Instance.isLost)
+                return;
+            
             ScalebarManager.Instance.isFreezed = true;
             tutorialButton.SetActive(false);
             modalDialog.SetContent(content);
