@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 49a02d3fbe520415ab8df2ca99d45503, type: 3}
-    totalSpriteSurfaceArea: 867260
+    totalSpriteSurfaceArea: 1036860
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -57,6 +57,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 17c782a21f1bd4c9fbaa5c24f3914c4d, type: 3}
   - {fileID: 21300000, guid: d80bff735b07e1a48a18291655670893, type: 3}
   - {fileID: 21300000, guid: 1e67e5939a026494b99771dc54f22ebd, type: 3}
+  - {fileID: 21300000, guid: 69cd02e36ba0f48058378ddaff75cbeb, type: 3}
   - {fileID: 21300000, guid: b5f590243905e45ddad1a40ea9bd4c29, type: 3}
   - {fileID: 21300000, guid: d7d71d345b0f21349a635af4a86469d4, type: 3}
   - {fileID: 21300000, guid: 451a9f642bab04ba5a65a78b5f335645, type: 3}
@@ -85,7 +86,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 37f2e89ef5db53a4b858f9c2acf689b2, type: 3}
   - {fileID: 21300000, guid: 81d0803fdfc20c14ab20e5b11ea225ff, type: 3}
   - {fileID: 21300000, guid: c1e2b89fffc7e4ebe868aa7b0feac341, type: 3}
-  - {fileID: 21300000, guid: b773a7afc665b0c459105023c0b635d2, type: 3}
   m_PackedSpriteNamesToIndex:
   - Button_Up_Press
   - Red
@@ -94,6 +94,7 @@ SpriteAtlas:
   - Green
   - water_tank
   - reactor
+  - Background
   - Button_Up
   - Whistle_rope
   - Termo
@@ -122,7 +123,6 @@ SpriteAtlas:
   - tutorial2
   - particle
   - Button_Down_Press
-  - Background
   m_RenderDataMap: {}
   m_Tag: Sprites
   m_IsVariant: 0
