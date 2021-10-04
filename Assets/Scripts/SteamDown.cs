@@ -80,6 +80,7 @@ public class SteamDown : MonoBehaviour
         transform.DOMoveY(_initialYPos, 0.3f).OnComplete(() => _isDragged = false);
         _steamScalebar.StopSteamSound();
         CursorManager.Instance.SetCursor(_isOver ? CursorType.BeforeGrab : CursorType.Pointer);
+        _steamScalebar.HideSteam();
     }
     
 }

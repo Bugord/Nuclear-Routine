@@ -95,6 +95,11 @@ public class SteamScalebar : Scalebar
         ChangeValue(Value - value);
     }
 
+    public void HideSteam()
+    {
+        steamParticles.SetActive(false);
+    }
+
     public void StopSteamSound()
     {
         steamSoundController.Stop();
