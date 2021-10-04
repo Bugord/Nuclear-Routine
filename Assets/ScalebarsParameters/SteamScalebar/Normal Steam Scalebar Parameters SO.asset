@@ -15,4 +15,4 @@ MonoBehaviour:
   heatMod: 0.04
   waterMod: 0.06
   baseDecrease: 0.05
-  steamMod: -0.1
+  steamMod: 0
