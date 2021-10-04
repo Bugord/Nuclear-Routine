@@ -3,11 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundController : MonoBehaviour
 {
-    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioSource audioSource;
     
     void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Play(AudioClip clip, bool skipCurrent)
@@ -25,7 +25,7 @@ public class SoundController : MonoBehaviour
         {
             Stop();
         }
-        if (audio.clip != clip)
+        if (audioSource.clip != clip)
         {
             Stop();
         }
@@ -36,20 +36,20 @@ public class SoundController : MonoBehaviour
     {
         var distance = (transform.position - Vector3.zero).x;
         var soundFactor = distance * 100 / Screen.width;
-        audio.volume = (1 - Mathf.Abs(soundFactor)) * volumeFactor;
-        if (!audio.isPlaying)
+        audioSource.volume = (1 - Mathf.Abs(soundFactor)) * volumeFactor;
+        if (!audioSource.isPlaying)
         {
-            audio.clip = clip;
-            audio.panStereo = soundFactor;
-            if (audio.volume > 0)
+            audioSource.clip = clip;
+            audioSource.panStereo = soundFactor;
+            if (audioSource.volume > 0)
             {
-                audio.Play();
+                audioSource.Play();
             }
         }
     }
 
     public void Stop()
     {
-        audio.Stop();
+        audioSource.Stop();
     }
 }

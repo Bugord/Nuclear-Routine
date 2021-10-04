@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 49a02d3fbe520415ab8df2ca99d45503, type: 3}
+    totalSpriteSurfaceArea: 865915
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0fe00e70d93fb40f6b2f8520e1afd112, type: 3}
+  - {fileID: 21300000, guid: 498d9fe0a607c4738b7190ac169b62d9, type: 3}
+  - {fileID: 21300000, guid: e88a12e1be9959841a42ad79907c7ead, type: 3}
+  - {fileID: 21300000, guid: 17c782a21f1bd4c9fbaa5c24f3914c4d, type: 3}
+  - {fileID: 21300000, guid: d80bff735b07e1a48a18291655670893, type: 3}
+  - {fileID: 21300000, guid: 1e67e5939a026494b99771dc54f22ebd, type: 3}
+  - {fileID: 21300000, guid: b5f590243905e45ddad1a40ea9bd4c29, type: 3}
+  - {fileID: 21300000, guid: d7d71d345b0f21349a635af4a86469d4, type: 3}
+  - {fileID: 21300000, guid: 451a9f642bab04ba5a65a78b5f335645, type: 3}
+  - {fileID: 21300000, guid: 278c2975186e7814cbb364ff8bc090a6, type: 3}
+  - {fileID: 21300000, guid: 9ac70bb57b9169644a74c55ca7da6a76, type: 3}
+  - {fileID: 21300000, guid: 0c8ae1d5f462c2040a9e6f91259e1c13, type: 3}
+  - {fileID: 21300000, guid: 9815dd3601fbfd143812da8fe230ae35, type: 3}
+  - {fileID: 21300000, guid: 198647468b9d2024d9cf9194d2cbc34b, type: 3}
+  - {fileID: 21300000, guid: 7d676f464b760e74d947c1db9980f934, type: 3}
+  - {fileID: 21300000, guid: ad5f85a68f3bb574da216814f1e0e35e, type: 3}
+  - {fileID: 21300000, guid: efdb1667f5d43474ab2ea6b77583f721, type: 3}
+  - {fileID: 21300000, guid: 483605971ed0c432abfa5bc7444a79f6, type: 3}
+  - {fileID: 21300000, guid: 05ce21d75a3eb234680340d93ac79fa6, type: 3}
+  - {fileID: 21300000, guid: 876e7bd7e9ee0ac40b806e95830ea786, type: 3}
+  - {fileID: 21300000, guid: 1ba5ba18acea70c4c9743d121b57dc96, type: 3}
+  - {fileID: 21300000, guid: 40ed7f3871e5c7a4b97ef44c1c9425d0, type: 3}
+  - {fileID: 21300000, guid: a4e163a80af3b2b4380dd853f3a15014, type: 3}
+  - {fileID: 21300000, guid: 9adaa1592b1c56e4cad49b505870d06f, type: 3}
+  - {fileID: 21300000, guid: 6efa0d799e35a4e8691297581832a6f7, type: 3}
+  - {fileID: 21300000, guid: 55b8a1a93fe82483a9ae41c4dd9b658d, type: 3}
+  - {fileID: 21300000, guid: b5c566d9d86de3942810a7f4c3a42dda, type: 3}
+  - {fileID: 21300000, guid: ca6d462a6af8d1d4f9ec15badba19ce6, type: 3}
+  - {fileID: 21300000, guid: 2722e05a2f6fb8d47bd527ae620b543f, type: 3}
+  - {fileID: 21300000, guid: 08232eac16b4b5e4e8742718ab06e75f, type: 3}
+  - {fileID: 21300000, guid: 4181611d29abd48ebb4d14d6d519b621, type: 3}
+  - {fileID: 21300000, guid: 37f2e89ef5db53a4b858f9c2acf689b2, type: 3}
+  - {fileID: 21300000, guid: c1e2b89fffc7e4ebe868aa7b0feac341, type: 3}
+  - {fileID: 21300000, guid: b773a7afc665b0c459105023c0b635d2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Button_Up_Press
+  - Red
+  - Electro_indicator
+  - Green
+  - water_tank
+  - reactor
+  - Button_Up
+  - Whistle_rope
+  - Termo
+  - SterjenRed
+  - Whistle
+  - Sterjen
+  - heat
+  - skip_tutorial2
+  - valve
+  - Cross
+  - Blue
+  - Reactor_Background
+  - whistle
+  - SterjenGreen
+  - steam
+  - Water
+  - SterjenBlue
+  - Reactor_foreground
+  - Valve_Forward
+  - Valve
+  - Border
+  - Steam_arrow
+  - power
+  - Steam_circle
+  - Button_Down
+  - tutorial2
+  - Button_Down_Press
+  - Background
+  m_RenderDataMap: {}
+  m_Tag: Sprites
+  m_IsVariant: 0

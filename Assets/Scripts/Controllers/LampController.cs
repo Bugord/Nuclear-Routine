@@ -7,7 +7,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class LampController : MonoBehaviour
 {
-    [SerializeField] private Light2D light;
+    [SerializeField] private Light2D lightSource;
     private bool _isBlinking;
     [SerializeField] private Vector2 noiseOffset;
     private Vector2 noisePosition;
@@ -22,7 +22,7 @@ public class LampController : MonoBehaviour
     {
         DOTween.Sequence(this).AppendInterval(0.1f).AppendCallback(() =>
         {
-            DOTween.To(() => light.intensity, x => light.intensity = x, isOn ? 0.3f : 0, 0.2f);
+            DOTween.To(() => lightSource.intensity, x => lightSource.intensity = x, isOn ? 0.3f : 0, 0.2f);
         }).Play();
     }
 
@@ -41,9 +41,9 @@ public class LampController : MonoBehaviour
     private IEnumerator Blink(float time)
     {
         _isBlinking = true;
-        light.enabled = false;
+        lightSource.enabled = false;
         yield return new WaitForSeconds(time);
-        light.enabled = true;
+        lightSource.enabled = true;
         yield return new WaitForSeconds(10);
         _isBlinking = false;
     }

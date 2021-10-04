@@ -7,6 +7,7 @@ public class GameOverController : MonoBehaviour
 {
     [SerializeField] private SoundController gameOverSoundController;
     [SerializeField] private SoundController explosionSoundController;
+
     private void Awake()
     {
         ScalebarManager.Instance.HeatScalebar.HeatExplode += OnHeatExplode;

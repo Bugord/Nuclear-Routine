@@ -16,6 +16,8 @@ public class LightManager : MonoBehaviour
 
     public Action<bool> LightSwitched;
 
+    private int pizdecCount;
+
     void Awake()
     {
         Instance = this;
@@ -23,6 +25,7 @@ public class LightManager : MonoBehaviour
 
     public void EnableAlarmLight(bool isSoundOn)
     {
+        pizdecCount++;
         LightSwitched?.Invoke(false);
         lightSoundController.Play(SoundManager.Instance.GetAudioClip("LightTurnOff"));
         alarmSound.SetActive(isSoundOn);
@@ -33,6 +36,7 @@ public class LightManager : MonoBehaviour
     
     public void EnableReserveLight()
     {
+        pizdecCount++;
         lightSoundController.Play(SoundManager.Instance.GetAudioClip("LightTurnOff"));
         LightSwitched?.Invoke(false);
         normalLight.SetActive(false);
@@ -42,6 +46,11 @@ public class LightManager : MonoBehaviour
 
     public void EnableNormalLight()
     {
+        pizdecCount--;
+        if (pizdecCount != 0)
+        {
+            return;
+        }
         lightSoundController.Play(SoundManager.Instance.GetAudioClip("LightTurnOn"));
         LightSwitched?.Invoke(true);
         normalLight.SetActive(true);

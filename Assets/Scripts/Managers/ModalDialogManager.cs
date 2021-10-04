@@ -48,13 +48,14 @@ namespace DefaultNamespace
         private void OnModalDialogClosed()
         {
             _closeCallback?.Invoke();
+            
+            LoadNextDialog();
+            
             if (isTutorialPassed)
             {
                 tutorialButton.SetActive(true);
                 ScalebarManager.Instance.isFreezed = false;
             }
-
-            LoadNextDialog();
         }
 
         [ContextMenu("Test")]
