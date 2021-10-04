@@ -14,6 +14,7 @@ public class LampController : MonoBehaviour
 
     private void Start()
     {
+        lightSource = GetComponent<Light2D>();
         noisePosition = noiseOffset;
         LightManager.Instance.LightSwitched += SwitchLight;
     }
