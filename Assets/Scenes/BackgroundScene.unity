@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverSoundController: {fileID: 888072470}
   explosionSoundController: {fileID: 1711490314}
-  timeToWin: 0
+  timeToWin: 43200
   _endGameModal: {fileID: 1179649520928072884}
 --- !u!114 &1000307424
 MonoBehaviour:
