@@ -9,6 +9,7 @@ public class GameOverController : MonoBehaviour
     public static GameOverController Instance;
     [SerializeField] private SoundController gameOverSoundController;
     [SerializeField] private SoundController explosionSoundController;
+    [SerializeField] private SoundController winSoundController;
 
     [SerializeField] private float timeToWin;
     [SerializeField] private EndGameModal _endGameModal;
@@ -62,7 +63,13 @@ public class GameOverController : MonoBehaviour
 
     private void OnVictory()
     {
+        if (ScalebarManager.Instance.isFreezed)
+        {
+            return;
+        }
         _endGameModal.OpenEndDialog(false);
+        winSoundController.Play(SoundManager.Instance.GetAudioClip("WinSound"));
+        ScalebarManager.Instance.isFreezed = true;    
     }
 
     private void Update()
@@ -75,6 +82,10 @@ public class GameOverController : MonoBehaviour
 
     private IEnumerator LostTimer(LostReason lostReason)
     {
+        if (isLost)
+        {
+            yield break;
+        }
         isLost = true;
         yield return new WaitForSeconds(2);
         _endGameModal.OpenEndDialog(true, lostReason);

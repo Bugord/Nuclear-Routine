@@ -65,9 +65,19 @@ public class HeatScalebar : Scalebar
         return _fuelController.GetTotalDeep() * _heatScalebarParameters[_currentDifficultyId].fuelDeepMod;
     }
 
+    private float _explodeTime;
+    
     IEnumerator ExplodeTimer()
     {
-        yield return new WaitForSeconds(_timeToExplode);
+        while (_explodeTime < _timeToExplode)
+        {
+            if (ScalebarManager.Instance.isFreezed)
+            {
+                yield return null;
+            }
+            _explodeTime += Time.deltaTime;
+            yield return null;
+        }
         HeatExplode?.Invoke();
     }
 }

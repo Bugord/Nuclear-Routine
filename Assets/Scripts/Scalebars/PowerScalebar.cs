@@ -52,10 +52,20 @@ public class PowerScalebar : Scalebar
             _isCounting = true;
         }
     }
+
+    private float _blackoutTime;
     
     IEnumerator BlackoutTimer()
     {
-        yield return new WaitForSeconds(_timeToBlackout);
+        while (_blackoutTime < _timeToBlackout)
+        {
+            if (ScalebarManager.Instance.isFreezed)
+            {
+                yield return null;
+            }
+            _blackoutTime += Time.deltaTime;
+            yield return null;
+        }
         Blackout?.Invoke();
     }
 }

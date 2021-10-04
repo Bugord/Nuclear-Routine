@@ -85,10 +85,20 @@ public class SteamScalebar : Scalebar
     {
         steamSoundController.Stop();
     }
+
+    private float _explodeTime;
     
     IEnumerator ExplodeTimer()
     {
-        yield return new WaitForSeconds(_timeToExplode);
+        while (_explodeTime < _timeToExplode)
+        {
+            if (ScalebarManager.Instance.isFreezed)
+            {
+                yield return null;
+            }
+            _explodeTime += Time.deltaTime;
+            yield return null;
+        }
         SteamExplode?.Invoke();
     }
 }
