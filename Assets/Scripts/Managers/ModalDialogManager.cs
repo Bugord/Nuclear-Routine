@@ -39,6 +39,10 @@ namespace DefaultNamespace
             {
                 StartCoroutine(StartTutorial());
             }
+            else
+            {
+                SkipTutorial();
+            }
         }
 
         public void OpenModal(ModalContentSO content, Action callback = null)
