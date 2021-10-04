@@ -69,6 +69,7 @@ public class HeatScalebar : Scalebar
     
     IEnumerator ExplodeTimer()
     {
+        _explodeTime = 0;
         while (_explodeTime < _timeToExplode)
         {
             if (ScalebarManager.Instance.isFreezed)

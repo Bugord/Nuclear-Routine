@@ -57,6 +57,7 @@ public class PowerScalebar : Scalebar
     
     IEnumerator BlackoutTimer()
     {
+        _blackoutTime = 0;
         while (_blackoutTime < _timeToBlackout)
         {
             if (ScalebarManager.Instance.isFreezed)
