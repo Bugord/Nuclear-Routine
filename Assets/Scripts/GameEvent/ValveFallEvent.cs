@@ -13,16 +13,14 @@ namespace GameEvent
         [SerializeField] private GameObject _valveGameObject;
         [SerializeField] private GameObject _valveDynamicGameObject;
         private Vector3 _valveInitialPosition;
+        [SerializeField] private Valve _valve;
         
         protected override void OnEventStart()
         {
             base.OnEventStart();
             _valveInitialPosition = _valveGameObject.transform.position;
             _valveDynamicGameObject.transform.GetChild(0).rotation = _valveGameObject.transform.GetChild(0).rotation;
-            _valveGameObject.SetActive(false);
-            _valveDynamicGameObject.SetActive(true);
-
-            ScalebarManager.Instance.WaterScalebar.SetParameterId(1);
+            _valve.SetCanDrop();
         }
 
         protected override void OnEventEnd()

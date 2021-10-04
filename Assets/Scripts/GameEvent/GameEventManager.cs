@@ -16,8 +16,6 @@ namespace GameEvent
         [SerializeField] private int _currentEventId;
 
         [SerializeField] private List<BaseGameEvent> shuffledGameEvents;
-        [SerializeField] private GameOverController gameOverController;
-        [SerializeField] private float timeToWinAfterLastEvent;
 
         private void Start()
         {

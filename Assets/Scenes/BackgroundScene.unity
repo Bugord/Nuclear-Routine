@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 272500926}
   - component: {fileID: 272500925}
   - component: {fileID: 272500924}
+  - component: {fileID: 272500928}
   m_Layer: 0
   m_Name: Valve_Dynamic
   m_TagString: Untagged
@@ -1016,6 +1017,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272500928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272500923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e42e135a9a40308d0aba60adbe4413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valvePosition: {x: -2.705, y: 0.75}
+  distanceToSnap: 0.3
+  valve: {fileID: 1026796273}
 --- !u!1 &314469342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1071,7 @@ MonoBehaviour:
   cooldown: 30
   _valveGameObject: {fileID: 1026796273}
   _valveDynamicGameObject: {fileID: 272500923}
+  _valve: {fileID: 1022052761}
 --- !u!114 &314469344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,8 +1092,6 @@ MonoBehaviour:
   - {fileID: 314469348}
   _currentEventId: 0
   shuffledGameEvents: []
-  gameOverController: {fileID: 0}
-  timeToWinAfterLastEvent: 0
 --- !u!4 &314469345
 Transform:
   m_ObjectHideFlags: 0
@@ -1522,6 +1537,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6529789224407647236, guid: 8ad380fe077916f4c8658b3b0edcd306, type: 3}
+      propertyPath: waterToDrop
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529789224407647236, guid: 8ad380fe077916f4c8658b3b0edcd306, type: 3}
+      propertyPath: dynamicValve
+      value: 
+      objectReference: {fileID: 272500923}
     - target: {fileID: 6546127330744303900, guid: 8ad380fe077916f4c8658b3b0edcd306, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -2337,6 +2360,17 @@ MonoBehaviour:
   pointerCursor: {fileID: 2800000, guid: 11a7af49eac275d498cbfa6dd6e75ad4, type: 3}
   beforeGrabCursor: {fileID: 2800000, guid: bd246e233376303409d6b4f9f4e4c70c, type: 3}
   grabCursor: {fileID: 2800000, guid: 4c70582f127cdb34ea9a5bcfb92350a3, type: 3}
+--- !u!114 &1022052761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6529789224407647236, guid: 8ad380fe077916f4c8658b3b0edcd306, type: 3}
+  m_PrefabInstance: {fileID: 646926073}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd449e141503a749a37124b9a910ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1026796273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 103504708439915720, guid: 8ad380fe077916f4c8658b3b0edcd306, type: 3}

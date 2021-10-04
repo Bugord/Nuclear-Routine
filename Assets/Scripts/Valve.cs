@@ -1,5 +1,6 @@
 using System;
 using DefaultNamespace;
+using DefaultNamespace.Controllers;
 using UnityEngine;
 
 public class Valve : MonoBehaviour
@@ -8,7 +9,7 @@ public class Valve : MonoBehaviour
     [SerializeField] private ValveSoundPaletteSo soundPalette;
     [SerializeField] private SoundController valveSoundController;
     [SerializeField] private SoundController waterSoundController;
-    
+
     private Camera _myCam;
     private Vector3 _screenPos;
     private float _angleOffset;
@@ -18,6 +19,11 @@ public class Valve : MonoBehaviour
     private float value;
     private bool _isOver;
 
+    [SerializeField] private GameObject dynamicValve;
+    private bool _canDrop;
+    [SerializeField] private float waterToDrop;
+    private float _waterCounter;
+
     void Start()
     {
         _myCam = Camera.main;
@@ -25,7 +31,7 @@ public class Valve : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(!_isDragged)
+        if (!_isDragged)
             CursorManager.Instance.SetCursor(CursorType.BeforeGrab);
         _isOver = true;
     }
@@ -39,7 +45,7 @@ public class Valve : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if(!_isDragged)
+        if (!_isDragged)
             CursorManager.Instance.SetCursor(CursorType.Pointer);
         _isOver = false;
     }
@@ -61,20 +67,30 @@ public class Valve : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if(ScalebarManager.Instance.isFreezed)
+        if (ScalebarManager.Instance.isFreezed)
             return;
 
         var v3 = Input.mousePosition - _screenPos;
         var angle = Mathf.Atan2(v3.y, v3.x) * Mathf.Rad2Deg;
-        
+
         if (_lastAngle > angle)
         {
             SetAngleOffset();
         }
+
         var delta = angle - _lastAngle;
         if (delta > 0 && delta < 90)
         {
             ScalebarManager.Instance.WaterScalebar.AddWater(delta * waterMod);
+            if (_canDrop)
+            {
+                _waterCounter += delta * waterMod;
+                if (_waterCounter >= waterToDrop)
+                {
+                    _waterCounter = 0;
+                    Drop();
+                }
+            }
         }
 
         if (delta > 3 && delta < 90)
@@ -82,8 +98,23 @@ public class Valve : MonoBehaviour
             valveSoundController.Play(soundPalette.valveSound);
             waterSoundController.Play(soundPalette.waterSound);
         }
-        
+
         transform.eulerAngles = new Vector3(0, 0, angle + _angleOffset);
         _lastAngle = angle;
+    }
+
+    public void SetCanDrop()
+    {
+        _canDrop = true;
+        Drop();
+    }
+
+    private void Drop()
+    {
+        dynamicValve.transform.position = transform.position;
+        dynamicValve.transform.GetChild(0).rotation = transform.rotation;
+        dynamicValve.SetActive(true);
+        transform.parent.gameObject.SetActive(false);
+        dynamicValve.GetComponent<DynamicValveController>().Drop();
     }
 }
